@@ -6,17 +6,24 @@ import { HeaderNav } from '../HeaderNav';
 export function PublicHeader() {
 
     return (
-            <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <header >
 
-                <Link to='/' className="d-inline-flex link-body-emphasis text-decoration-none">
-                    <img src={logo} alt="Logo" />
-                </Link>
+                <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mt-2">
+                    <Link to='/' className="d-inline-flex link-body-emphasis text-decoration-none">
+                        <img src={logo} alt="Logo" />
+                    </Link>
 
-                <HeaderNav />
+                    <form role="search">
+                        <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
+                    </form>
 
-                <div className='text-end'>
-                <Link to='/login' className='btn btn-primary'>Log In</Link>
-                <Link to='/register' className='btn btn-secondary'>Register</Link>
+                    <div className='text-end'>
+                    <Link to='/login' className='btn btn-primary'>Log In</Link>
+                    <Link to='/register' className='btn btn-secondary'>Register</Link>
+                    </div>
+                </div>
+                <div className="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+                    <HeaderNav />
                 </div>
             </header>
     )

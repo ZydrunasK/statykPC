@@ -6,6 +6,8 @@ import { Login } from "./pages/Login.jsx";
 import { PublicLayout } from "./layout/PublicLayout.jsx";
 import { UserLayout } from "./layout/UserLayout.jsx";
 import { Register } from "./pages/Register.jsx";
+import { Forum } from "./pages/Forum.jsx";
+import { Faq } from "./pages/Faq.jsx";
 
 export function App() {
 
@@ -17,6 +19,8 @@ export function App() {
             <Route index path='/' element={<Main />}></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/register' element={<Register />}></Route>
+            <Route path='/forum' element={<Forum />}></Route>
+            <Route path='/faq' element={<Faq />}></Route>
           </Route>
 
           <Route path='*' element={<NotFound />}></Route>

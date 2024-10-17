@@ -5,6 +5,7 @@ import { Main } from "./pages/Main.jsx";
 import { Login } from "./pages/Login.jsx";
 import { PublicLayout } from "./layout/PublicLayout.jsx";
 import { UserLayout } from "./layout/UserLayout.jsx";
+import { Register } from "./pages/Register.jsx";
 
 export function App() {
 
@@ -15,6 +16,7 @@ export function App() {
           <Route Component={PublicLayout}>
             <Route index path='/' element={<Main />}></Route>
             <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Register />}></Route>
           </Route>
 
           <Route path='*' element={<NotFound />}></Route>

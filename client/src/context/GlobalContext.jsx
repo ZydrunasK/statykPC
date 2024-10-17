@@ -1,25 +1,41 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const initialContext = {
-    exampleValue: 'example',
-    exampleFunction: () => {}
+    role: 'public',
+    isLoggedIn: false,
+    login: () => {},
+    logout: () => {},
 };
 
 export const GlobalContext = createContext(initialContext);
 
 export function ContextWrapper(props) {
 
-    const [exampleValue, setExampleValue] = useState(initialContext.exampleValue);
+    const [role, setRole] = useState(initialContext.role);
+    const [isLoggedIn, setIsLoggedIn] = useState(initialContext.isLoggedIn);
 
-    function exampleFunction() {
-        setExampleValue(true);
+    useEffect(() => {
+        setIsLoggedIn(() => false);
+        setRole(() => 'public');
+    }, [])
+
+    function login() {
+        setIsLoggedIn(() => true);
+        setRole(() => 'user');
+    }
+    function logout() {
+        setIsLoggedIn(() => false);
+        setRole(() => 'public');
     }
 
+
     const value = {
-        exampleValue,
-        exampleFunction,
+        role,
+        isLoggedIn,
+        login,
+        logout,
     };
 
     return (

@@ -22,6 +22,19 @@ export function Register() {
         console.log('email:', email);
         console.log('password:', password);
         console.log('TosCheck:', checked);
+        console.log('--------');
+        
+        fetch('http://localhost:5173/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({email, password, checked}),
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
+            
     }
 
 

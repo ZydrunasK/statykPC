@@ -1,4 +1,5 @@
 import e from "express";
+import cors from 'cors';
 import { homePage } from "./lib/homePage.js";
 import { notFoundPage } from "./lib/notFoundPage.js";
 import { notFoundResponse } from "./middleware/notFoundResponse.js";
@@ -14,6 +15,10 @@ app.use(e.json({
 app.use(e.urlencoded({
     extended: true,
 }));
+app.use(cors({
+    origin: 'http://localhost:5173',
+}));
+
 
 app.get('/', homePage);
 

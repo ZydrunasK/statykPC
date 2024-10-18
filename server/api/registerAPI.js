@@ -1,4 +1,4 @@
-import { IsValid } from "../lib/IsValid";
+import { IsValid } from "../lib/IsValid.js";
 
 export function registerPostAPI(req, res) {
     const requiredFields = [

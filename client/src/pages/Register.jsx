@@ -24,17 +24,17 @@ export function Register() {
         console.log('TosCheck:', checked);
         console.log('--------');
         
-        fetch('http://localhost:5173/api/register', {
+        fetch('http://localhost:5123/api/register', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({email, password, checked}),
+            body: JSON.stringify({ email, password, checked }),
         })
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.error(err));
-            
+
     }
 
 

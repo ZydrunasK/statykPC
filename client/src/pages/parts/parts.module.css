@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    padding: 2rem;
+    gap: 1rem;
+}
+.filterDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 2px solid black;
+    gap: 1rem;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: orange;
+}
+.hr {
+    position: relative;
+    width: calc(100% + 2rem);
+    left: -1rem;
+    border-top: 2px solid black;
+    opacity: 100%;
+}
+
+
+.partsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}

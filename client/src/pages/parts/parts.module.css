@@ -29,10 +29,25 @@
     opacity: 100%;
 }
 
-
 .partsList {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: blue;
+    justify-content: flex-start;
+    background-color: rgb(161, 199, 201);
+}
+.partsTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+.tr {
+}
+.th,
+.td {
+    padding: 1rem;
+    border: 2px solid rgb(255, 19, 243);
+}
+.td {
+    padding: 1rem;
+    border: 2px solid purple;
 }

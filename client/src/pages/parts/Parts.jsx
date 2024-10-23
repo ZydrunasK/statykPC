@@ -1,3 +1,4 @@
+import { tableMaker } from '../../functions/tableMaker';
 import s from './parts.module.css';
 
 export function Parts() {
@@ -32,19 +33,12 @@ export function Parts() {
             name: 'Asrock b450M-HDV R4.0',
             chipset: 'AMD b450',
             memory: 'DDR4',
-            formFactor: 'micro ATX'
+            formFactor: 'micro ATX',
+            bomb: 't4'
         },
     ];
-    const partsInTable = parts.map(
-        part => 
-        <tr key={part.id} className={s.tr}>
-            <td className={s.td}>{part.name}</td>
-            <td className={s.td}>{part.chipset}</td>
-            <td className={s.td}>{part.formFactor}</td>
-            <td className={s.td}>{part.memory}</td>
-        </tr>
-        );
-
+    const tableHead = ['name', 'chipset', 'formFactor', 'memory', 'bomb']; 
+    
     return (
         <main className={s.main}>
 
@@ -73,16 +67,7 @@ export function Parts() {
             </div>
 
             <div className={s.partsList}>
-                <table className={s.partsTable}>
-                    <tr className={s.tr}>
-                        <th className={s.th}>name</th>
-                        <th className={s.th}>chipset</th>
-                        <th className={s.th}>Form Factor</th>
-                        <th className={s.th}>memory</th>
-                    </tr>
-                    {partsInTable}
-                </table>
-
+                {tableMaker(tableHead, parts)}
             </div>
         </main>
     );

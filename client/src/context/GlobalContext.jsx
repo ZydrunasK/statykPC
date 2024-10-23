@@ -7,6 +7,7 @@ export const initialContext = {
     isLoggedIn: false,
     login: () => {},
     logout: () => {},
+    tableMaker: () => {},
 };
 
 export const GlobalContext = createContext(initialContext);

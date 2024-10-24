@@ -37,6 +37,14 @@ export function Parts() {
             formFactor: 'micro ATX',
             bomb: 't4'
         },
+        {
+            id: 5,
+            type: 'mobo',
+            name: 'MSI b550',
+            chipset: 'AMD b550',
+            memory: 'DDR4',
+            formFactor: 'ATX',
+        },
     ];
     const tableHead = ['name', 'chipset', 'formFactor', 'memory']; 
     

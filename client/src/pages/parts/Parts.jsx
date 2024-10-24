@@ -25,7 +25,8 @@ export function Parts() {
             name: 'Asrock b550M Steel legend',
             chipset: 'AMD b550',
             memory: 'DDR4',
-            formFactor: 'micro ATX'
+            formFactor: 'micro ATX',
+            bomb: 'yabadabadoooo'
         },
         {
             id: 4,
@@ -37,7 +38,7 @@ export function Parts() {
             bomb: 't4'
         },
     ];
-    const tableHead = ['name', 'chipset', 'formFactor', 'memory', 'bomb']; 
+    const tableHead = ['name', 'chipset', 'formFactor', 'memory']; 
     
     return (
         <main className={s.main}>

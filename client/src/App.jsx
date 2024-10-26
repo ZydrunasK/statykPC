@@ -8,7 +8,8 @@ import { UserLayout } from "./layout/UserLayout.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Forum } from "./pages/Forum.jsx";
 import { Faq } from "./pages/Faq.jsx";
-import { Parts } from "./pages/parts/Parts.jsx";
+import { MotherBoard } from "./pages/parts/MotherBoard.jsx";
+import { CPU } from "./pages/parts/CPU.jsx";
 
 export function App() {
 
@@ -22,7 +23,8 @@ export function App() {
             <Route path='/register' element={<Register />}></Route>
             <Route path='/forum' element={<Forum />}></Route>
             <Route path='/faq' element={<Faq />}></Route>
-            <Route path='/parts' element={<Parts />}></Route>
+            <Route path='/MotherBoard' element={<MotherBoard />}></Route>
+            <Route path='/CPU' element={<CPU />}></Route>
           </Route>
 
           <Route path='*' element={<NotFound />}></Route>

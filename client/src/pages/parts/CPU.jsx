@@ -1,7 +1,9 @@
-import { tableMaker } from '../../functions/tableMaker';
+
+import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
+import { tableMaker } from '../../functions/tableMaker.jsx';
 import s from './parts.module.css';
 
-export function Parts() {
+export function CPU() {
     const parts = [
         {
             id: 1,
@@ -51,29 +53,7 @@ export function Parts() {
     return (
         <main className={s.main}>
 
-            <div className={s.filter}>
-
-                <div className={s.filterDiv}>
-                    <h2 className={s.specName}>spec name 1</h2>
-                    <hr className={s.hr} />
-                    <ul>
-                        <li>list Item-1</li>
-                        <li>list Item-2</li>
-                        <li>list Item-3</li>
-                    </ul>
-                </div>
-
-                <div className={s.filterDiv}>
-                    <h2 className={s.specName}>spec name 2</h2>
-                    <hr className={s.hr} />
-                    <ul>
-                        <li>list Item-1</li>
-                        <li>list Item-2</li>
-                        <li>list Item-3</li>
-                    </ul>
-                </div>
-
-            </div>
+            <ListFilter />
 
             <div className={s.partsList}>
                 {tableMaker(tableHead, parts)}

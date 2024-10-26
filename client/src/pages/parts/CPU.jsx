@@ -7,48 +7,41 @@ export function CPU() {
     const parts = [
         {
             id: 1,
-            type: 'mobo',
-            name: 'Gigabyte b550 ds3h',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX'
+            type: 'CPU',
+            name: 'r5 5600',
+            architecture: 'zen 3',
+            coreClock: '3.5 GHz'
         },
         {
             id: 2,
-            type: 'mobo',
-            name: 'Asus b550M-K',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX'
+            type: 'CPU',
+            name: 'r7 7700x',
+            architecture: 'zen 3',
+            coreClock: '3.5 GHz'
         },
         {
             id: 3,
-            type: 'mobo',
-            name: 'Asrock b550M Steel legend',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX',
-            bomb: 'yabadabadoooo'
+            type: 'CPU',
+            name: 'i3 12100f',
+            architecture: 'alder lake',
+            coreClock: '3.5 GHz'
         },
         {
             id: 4,
-            type: 'mobo',
-            name: 'Asrock b450M-HDV R4.0',
-            chipset: 'AMD b450',
-            memory: 'DDR4',
-            formFactor: 'micro ATX',
-            bomb: 't4'
+            type: 'CPU',
+            name: 'i5 13500',
+            architecture: 'raptor lake',
+            coreClock: '3.5 GHz'
         },
         {
             id: 5,
-            type: 'mobo',
-            name: 'MSI b550',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'ATX',
+            type: 'CPU',
+            name: 'r9 7950x',
+            architecture: 'zen 4',
+            coreClock: '3.5 GHz'
         },
     ];
-    const tableHead = ['name', 'chipset', 'formFactor', 'memory']; 
+    const tableHead = ['type', 'name', 'architecture', 'coreClock' ]
     
     return (
         <main className={s.main}>

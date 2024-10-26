@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '/src/assets/vite.svg';
-import { HeaderNav } from '../HeaderNav';
+import { HeaderNav } from '../HeaderNav.jsx';
 
 
 export function PublicHeader() {

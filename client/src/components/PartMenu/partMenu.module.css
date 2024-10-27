@@ -2,11 +2,9 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: red;
-    width: 25rem;
-    height: 10rem;
-    left: 40;
+    width: 31rem;
 }
 [data-visible=false] {
     display: none;
@@ -15,7 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: #c7c7c7;
     gap: 0.5rem;
 }
@@ -24,9 +22,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5rem;
-    width: 7.5rem;
-    padding: 1rem;
     border: 2px solid #353535;
     list-style: none;
 }
@@ -38,6 +33,12 @@
 }
 
 .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: black;
+    width: 7rem;
+    height: 7rem;
+    text-align: center;
 }

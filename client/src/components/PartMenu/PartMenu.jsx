@@ -5,7 +5,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 
 export function PartMenu() {
     const {visible} = useContext(GlobalContext);
-    
+
     return (
         <>
         <div className={s.partMenuDiv} data-visible={visible}>
@@ -14,16 +14,22 @@ export function PartMenu() {
                     <Link to='/CPU' className={s.name}>Procesoriai</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Motinine plokstes</Link>
+                    <Link to='/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
                 </li>
                 <li className={s.part}>
                     <Link to='/MotherBoard' className={s.name}>Atmintis</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>vaizdo kortos</Link>
+                    <Link to='/MotherBoard' className={s.name}>Vaizdo kortos</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>kietieji diskai</Link>
+                    <Link to='/MotherBoard' className={s.name}>Kietieji diskai</Link>
+                </li>
+                <li className={s.part}>
+                    <Link to='/MotherBoard' className={s.name}>Ausintuvai</Link>
+                </li>
+                <li className={s.part}>
+                    <Link to='/MotherBoard' className={s.name}>Maitinimo saltiniai</Link>
                 </li>
             </ul>
         </div>

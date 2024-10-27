@@ -5,6 +5,7 @@ import { notFoundPage } from "./lib/notFoundPage.js";
 import { notFoundResponse } from "./middleware/notFoundResponse.js";
 import { fatalServerErrorResponse } from "./middleware/fatalServerErrorResponse.js";
 import { registerPostAPI } from "./api/registerAPI.js";
+import { motherboardGetAPI } from "./api/motherboards.js";
 
 const app = e();
 const port = 5123;
@@ -24,6 +25,7 @@ app.use(cors({
 app.get('/', homePage);
 
 app.post('/api/register', registerPostAPI);
+app.get('/api/MotherBoard', motherboardGetAPI);
 // app.post('/api/login', loginPostAPI);
 // app.get('/api/logout', logoutPostAPI);
 

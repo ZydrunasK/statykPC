@@ -1,10 +1,15 @@
 .partMenuDiv {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     background-color: red;
     width: 25rem;
     height: 10rem;
+    left: 40;
+}
+[data-visible=false] {
+    display: none;
 }
 .partMenu {
     display: flex;

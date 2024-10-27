@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import s from './partMenu.module.css';
+import { useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
 
 export function PartMenu() {
+    const {visible} = useContext(GlobalContext);
+    
     return (
         <>
-        <div className={s.partMenuDiv}>
+        <div className={s.partMenuDiv} data-visible={visible}>
             <ul className={s.partMenu}>
                 <li className={s.part}>
                     <Link to='/CPU' className={s.name}>Procesoriai</Link>

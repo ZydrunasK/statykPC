@@ -5,6 +5,8 @@ import { createContext, useEffect, useState } from "react";
 export const initialContext = {
     role: 'public',
     isLoggedIn: false,
+    visible: false,
+    handleVisible: () => {},
     login: () => {},
     logout: () => {},
     tableMaker: () => {},
@@ -14,6 +16,7 @@ export const GlobalContext = createContext(initialContext);
 
 export function ContextWrapper(props) {
 
+    const [visible, setVisible] = useState(initialContext.visible);
     const [role, setRole] = useState(initialContext.role);
     const [isLoggedIn, setIsLoggedIn] = useState(initialContext.isLoggedIn);
 
@@ -22,6 +25,9 @@ export function ContextWrapper(props) {
         setRole(() => 'public');
     }, [])
 
+    function handleVisible() {
+        setVisible(pre => !pre)
+    }
     function login() {
         setIsLoggedIn(() => true);
         setRole(() => 'user');
@@ -34,9 +40,11 @@ export function ContextWrapper(props) {
 
     const value = {
         role,
+        visible,
         isLoggedIn,
         login,
         logout,
+        handleVisible
     };
 
     return (

@@ -17,19 +17,19 @@ export function PartMenu() {
                     <Link to='/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Atmintis</Link>
+                    <Link to='/RAM' className={s.name}>Atmintis (RAM)</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Vaizdo kortos</Link>
+                    <Link to='/GPU' className={s.name}>Vaizdo kortos</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Kietieji diskai</Link>
+                    <Link to='/Storage' className={s.name}>Kietieji diskai</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Ausintuvai</Link>
+                    <Link to='/Cooler' className={s.name}>Ausintuvai</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Maitinimo saltiniai</Link>
+                    <Link to='/PSU' className={s.name}>Maitinimo saltiniai</Link>
                 </li>
             </ul>
         </div>

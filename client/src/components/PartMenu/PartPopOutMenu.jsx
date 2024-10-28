@@ -3,7 +3,7 @@ import s from './partMenu.module.css';
 import { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalContext';
 
-export function PartMenu() {
+export function PartPopOutMenu() {
     const {visible} = useContext(GlobalContext);
 
     return (
@@ -17,7 +17,7 @@ export function PartMenu() {
                     <Link to='/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
                 </li>
                 <li className={s.part}>
-                    <Link to='/RAM' className={s.name}>Atmintis (RAM)</Link>
+                    <Link to='/Memory' className={s.name}>Atmintis (RAM)</Link>
                 </li>
                 <li className={s.part}>
                     <Link to='/GPU' className={s.name}>Vaizdo kortos</Link>

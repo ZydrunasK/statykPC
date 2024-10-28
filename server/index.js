@@ -6,7 +6,8 @@ import { notFoundResponse } from "./middleware/notFoundResponse.js";
 import { fatalServerErrorResponse } from "./middleware/fatalServerErrorResponse.js";
 import { registerPostAPI } from "./api/registerAPI.js";
 import { motherboardGetAPI } from "./api/motherboards.js";
-import { memoryGetAPI } from "./api/ram.js";
+import { memoryGetAPI } from "./api/Memory.js";
+
 
 const app = e();
 const port = 5123;
@@ -27,7 +28,7 @@ app.get('/', homePage);
 
 app.post('/api/register', registerPostAPI);
 app.get('/api/MotherBoard', motherboardGetAPI);
-app.get('/api/RAM', memoryGetAPI);
+app.get('/api/Memory', memoryGetAPI);
 // app.post('/api/login', loginPostAPI);
 // app.get('/api/logout', logoutPostAPI);
 

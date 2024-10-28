@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MenuLink } from './MenuLink.jsx';
-import { PartMenu } from './PartMenu/PartMenu.jsx';
+import { PartPopOutMenu } from './PartMenu/PartPopOutMenu.jsx';
 import { GlobalContext } from '../context/GlobalContext.jsx';
 
 export function HeaderNav() {
@@ -14,7 +14,7 @@ export function HeaderNav() {
                 <MenuLink href='/faq' title='DUK' />
                 <MenuLink href='/forum' title='forum' />
             </ul>
-            <PartMenu />
+            <PartPopOutMenu />
         </div>
     );
 }

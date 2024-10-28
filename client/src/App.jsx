@@ -10,6 +10,7 @@ import { Forum } from "./pages/Forum.jsx";
 import { Faq } from "./pages/Faq.jsx";
 import { MotherBoard } from "./pages/parts/MotherBoard.jsx";
 import { CPU } from "./pages/parts/CPU.jsx";
+import { Memory } from "./pages/parts/memory.jsx";
 
 export function App() {
 
@@ -25,6 +26,7 @@ export function App() {
             <Route path='/faq' element={<Faq />}></Route>
             <Route path='/MotherBoard' element={<MotherBoard />}></Route>
             <Route path='/CPU' element={<CPU />}></Route>
+            <Route path='/Memory' element={<Memory />}></Route>
           </Route>
 
           <Route path='*' element={<NotFound />}></Route>

@@ -1,4 +1,8 @@
 export function tableMaker(headArr, partsArr) {
+    if (!Array.isArray(headArr)
+        || !Array.isArray(partsArr)) {
+        return 'error: params must be arrays';
+    }
 
     const head = [];
     for (const th of headArr) {

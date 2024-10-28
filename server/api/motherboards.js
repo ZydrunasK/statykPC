@@ -1,14 +1,12 @@
 import { connection } from "../db.js";
 
-export async function motherboardGetAPI() {
+export async function motherboardGetAPI(req, res) {
     console.log('api veikia');
     try {
         const sql = 'SELECT * FROM motherboards';
         const moboList = await connection.execute(sql);
-        console.log(moboList[0]);
-        
+        res.json(moboList[0])
     } catch (error) {
-        
+        console.log('error: ' + error);
     }
-    return '';
 }

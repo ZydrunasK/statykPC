@@ -1,14 +1,12 @@
 import { connection } from "../db.js";
 
-export async function memoryGetAPI() {
+export async function memoryGetAPI(req, res) {
     console.log('api veikia');
     try {
         const sql = 'SELECT * FROM memory';
         const memoryList = await connection.execute(sql);
-        console.log(memoryList[0]);
-        
+        res.json(memoryList[0])
     } catch (error) {
-        
+        console.log(error);
     }
-    return '';
 }

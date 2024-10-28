@@ -14,14 +14,12 @@ body {
     border-collapse: collapse;
     width: 100%;
 }
-tr {
-}
-.partTableTh,
-.partTableTd {
+.partsTableTh,
+.partsTableTd {
     padding: 1rem;
     border: 2px solid rgb(255, 19, 243);
 }
-.partTableTd  {
+.partsTableTd  {
     padding: 1rem;
     border: 2px solid purple;
     user-select: none;

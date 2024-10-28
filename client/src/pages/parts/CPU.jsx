@@ -7,41 +7,43 @@ export function CPU() {
     const parts = [
         {
             id: 1,
-            type: 'CPU',
-            name: 'r5 5600',
+            part_type: 'CPU',
+            part_name: 'r5 5600',
             architecture: 'zen 3',
             coreClock: '3.5 GHz'
         },
         {
             id: 2,
-            type: 'CPU',
-            name: 'r7 7700x',
+            part_type: 'CPU',
+            part_name: 'r7 7700x',
             architecture: 'zen 3',
             coreClock: '3.5 GHz'
         },
         {
             id: 3,
-            type: 'CPU',
-            name: 'i3 12100f',
+            part_type: 'CPU',
+            part_name: 'i3 12100f',
             architecture: 'alder lake',
             coreClock: '3.5 GHz'
         },
         {
             id: 4,
-            type: 'CPU',
-            name: 'i5 13500',
+            part_type: 'CPU',
+            part_name: 'i5 13500',
             architecture: 'raptor lake',
             coreClock: '3.5 GHz'
         },
         {
             id: 5,
-            type: 'CPU',
-            name: 'r9 7950x',
+            part_type: 'CPU',
+            part_name: 'r9 7950x',
             architecture: 'zen 4',
             coreClock: '3.5 GHz'
         },
     ];
-    const tableHead = ['type', 'name', 'architecture', 'coreClock' ]
+    const partInfo = ['part_type', 'part_name', 'architecture', 'coreClock'];
+    const headersArr = ['type', 'name', 'architecture', 'coreClock'];
+
     
     return (
         <main className={s.main}>
@@ -49,7 +51,7 @@ export function CPU() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(tableHead, parts)}
+                {tableMaker(partInfo, parts, headersArr)}
             </div>
         </main>
     );

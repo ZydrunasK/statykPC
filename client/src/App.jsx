@@ -4,7 +4,6 @@ import { NotFound } from "./pages/NotFound.jsx";
 import { Main } from "./pages/Main.jsx";
 import { Login } from "./pages/Login.jsx";
 import { PublicLayout } from "./layout/PublicLayout.jsx";
-import { UserLayout } from "./layout/UserLayout.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Forum } from "./pages/Forum.jsx";
 import { Faq } from "./pages/Faq.jsx";

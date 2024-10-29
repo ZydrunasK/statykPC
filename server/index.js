@@ -5,8 +5,8 @@ import { notFoundPage } from "./lib/notFoundPage.js";
 import { notFoundResponse } from "./middleware/notFoundResponse.js";
 import { fatalServerErrorResponse } from "./middleware/fatalServerErrorResponse.js";
 import { registerPostAPI } from "./api/registerAPI.js";
-import { motherboardGetAPI } from "./api/motherboards.js";
-import { memoryGetAPI } from "./api/Memory.js";
+import { motherboardGetAPI } from "./api/motherboardsAPI.js";
+import { memoryGetAPI } from "./api/memoryAPI.js";
 
 
 const app = e();

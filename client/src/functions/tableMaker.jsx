@@ -23,7 +23,7 @@ export function tableMaker(partInfoArr, partsArr, headerArr) {
     }
     const body = [];
     for (const part of partsArr) {
-        head.push(
+        body.push(
             <tr key={part.part_name + part.id} className='partsTableTr'>
                 {partInfoArr.map(str => <td key={str + 'Name'} className='partsTableTd'>{part[str]}</td>)}
             </tr>);
@@ -33,11 +33,15 @@ export function tableMaker(partInfoArr, partsArr, headerArr) {
     const table =(
     <table className='partsTable'>
         <thead className='partsTableThead'>
-            {head}
+            <tr className="partsTableHeadTr">
+                {head}
+            </tr>
         </thead>
+
         <tbody className='partsTableTbody'>
             {body}
         </tbody>
+
     </table>
     );
 

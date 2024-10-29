@@ -26,7 +26,7 @@ export function ContextWrapper(props) {
     }, [])
 
     function handleVisible() {
-        setVisible(pre => !pre)
+        setVisible(pre => !pre);
     }
     function login() {
         setIsLoggedIn(() => true);

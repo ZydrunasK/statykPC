@@ -10,6 +10,10 @@ export function Memory() {
     useEffect (() => {
         fetch('http://localhost:5123/api/Memory', {
             method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(),
         }) 
             .then(res => res.json())
             .then(data => {

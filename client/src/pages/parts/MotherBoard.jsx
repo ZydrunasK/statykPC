@@ -55,13 +55,17 @@ export function MotherBoard() {
     useEffect(() => {
         fetch('http://localhost:5123/api/Motherboard', {
             method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(),
         })
         .then(res => res.json())
         .then(data => {
             console.log(data);
             setPartsArr(data)
         })
-        .catch(error => console.log('error: ' + error));
+        .catch(error => console.error(error));
     }, [])
 
     return (

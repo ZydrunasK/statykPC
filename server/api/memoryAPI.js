@@ -6,6 +6,6 @@ export async function memoryGetAPI(req, res) {
         const memoryList = await connection.execute(sql);
         res.json(memoryList[0])
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }

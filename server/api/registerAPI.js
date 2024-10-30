@@ -1,6 +1,7 @@
+import { connection } from "../db.js";
 import { IsValid } from "../lib/IsValid.js";
 
-export function registerPostAPI(req, res) {
+export async function registerPostAPI(req, res) {
     const requiredFields = [
         {
             field: 'email',
@@ -11,8 +12,27 @@ export function registerPostAPI(req, res) {
             validation: IsValid.password,
         }
     ];
-    const { email, password} = req.body;
+    const [isErr, errMessage] = IsValid.requiredFields(req.body, requiredFields);
+    if (isErr) {
+        return res.status(400).json({
+            status: 'error',
+            msg: errMessage,
+        });
+    }
 
+    const { email, password} = req.body;
+    
+
+    try {
+        
+        const sql = 'INSERT INTO users (email, password) VALUES (?, ?);';
+        const insertResult = await connection.execute(sql, [email, password]);
+        console.log(insertResult);
+        
+    } catch (error) {
+        console.error(error)
+    }
+    
     if (typeof email !== 'string') {
         return res.json({
             status: 'error',
@@ -20,8 +40,8 @@ export function registerPostAPI(req, res) {
         });
     }
 
-    return res.json({
+    return res.status(201).json({
         status: 'success',
-        msg: 'ok',
+        msg: 'Ok',
     });
 }

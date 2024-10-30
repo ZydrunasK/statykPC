@@ -61,7 +61,7 @@ export function Register() {
                                         <input onChange={handleTosChange} type="checkbox" value="tos" checked={checked ? 'checked' : ''} required="required" /> Sutinku su
                                     </label> <Link to='/tos' target='_blank'>paslaugos teikimo sąlygomis</Link>.
                                 </div>
-                                <button className="w-100 btn btn-lg btn-primary" type="submit">Prisijungti</button>
+                                <button className="w-100 btn btn-lg btn-primary" type="submit">Sukurti paskyra</button>
                             </form>
                         </div>
                     </div>

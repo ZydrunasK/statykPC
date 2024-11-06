@@ -7,7 +7,7 @@ try {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'StatykPc',
+        database: 'statykpc',
     });
 } catch (error) {
     console.log(error);

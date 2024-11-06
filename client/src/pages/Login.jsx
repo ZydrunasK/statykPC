@@ -1,6 +1,43 @@
-
+import { useState } from "react";
 
 export function Login() {
+    const [email, setEmail] = useState('email@email.com');
+    const [password, setPassword] = useState('email@email.comemail@email.com');
+
+    function handleEmail(event) {
+        setEmail(event.target.value);
+    }
+    function handlePassword(event) {
+        setPassword(event.target.value);
+    }
+
+
+    function handleSubmit(e) {
+        e.preventDefault();
+    
+        fetch('http://localhost:5123/api/login', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password })
+        })
+        .then(res => {
+            console.log('Response status:', res.status);
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+        
+
     return (
         <>
         <main>
@@ -10,13 +47,13 @@ export function Login() {
                     </div>
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-md-10 mx-auto col-lg-6 col-xl-5">
-                            <form className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                            <form onSubmit={handleSubmit} className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
                                 <div className="form-floating mb-3">
-                                    <input type="email" className="form-control" id="email" placeholder="name@example.com" required />
+                                    <input type="email" onChange={handleEmail} value={email} className="form-control" id="email" placeholder="name@example.com" required />
                                     <label htmlFor="email">El. paštas</label>
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="password" className="form-control" id="password" placeholder="Password" required />
+                                    <input type="password" onChange={handlePassword} value={password} className="form-control" id="password" placeholder="Password" required />
                                     <label htmlFor="password">Slaptažodis</label>
                                 </div>
                                 <button className="w-100 btn btn-lg btn-primary" type="submit">Prisijungti</button>

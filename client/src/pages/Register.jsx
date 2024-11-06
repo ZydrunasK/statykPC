@@ -5,6 +5,11 @@ export function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [checked, setChecked] = useState(false);
+    const [alert, setAlert] = useState('');
+
+    const registerError = <div className="alert alert-danger" role="alert">Nepavyko prisiregistruoti</div>;
+    const registerSuccess = <div className="alert alert-success" role="alert">Registracija sekmingai pavyko</div>;
+
 
     function handleEmailChange(event) {
         setEmail(event.target.value);
@@ -15,6 +20,8 @@ export function Register() {
     function handleTosChange(event) {
         setChecked(event.target.checked); 
     }
+
+
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -29,12 +36,18 @@ export function Register() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, password, checked }),
+            body: JSON.stringify({ email, password }),
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.status === 'error') {
+                    setAlert(registerError);
+                }
+                if (data.status === 'success') {
+                    setAlert(registerSuccess);
+                }
+            })
             .catch(err => console.error(err));
-
     }
 
 
@@ -48,6 +61,7 @@ export function Register() {
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-md-10 mx-auto col-lg-6 col-xl-5">
                             <form onSubmit={handleSubmit} className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                                {alert}
                                 <div className="form-floating mb-3">
                                     <input onChange={handleEmailChange} value={email} type="email" className="form-control" id="email" placeholder="name@example.com" required />
                                     <label htmlFor="email">El. paštas</label>

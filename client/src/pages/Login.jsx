@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
     const {login} = useContext(UserContext);
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('email@email.com');
     const [password, setPassword] = useState('email@email.comemail@email.com');
@@ -27,9 +29,10 @@ export function Login() {
         })
         .then(res => res.json())
         .then(data => {
+            
             if(data.status === 'success') {
                 login();
-                
+                navigate('/')
             }
         })
         .catch(error => {

@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 export function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [errMsg, setErrMsg] = useState('');
     const [checked, setChecked] = useState(false);
     const [alert, setAlert] = useState('');
 
-    const registerError = <div className="alert alert-danger" role="alert">Nepavyko prisiregistruoti</div>;
+    const registerError = <div className="alert alert-danger" role="alert">Registracija nepavyko: {errMsg}</div>;
     const registerSuccess = <div className="alert alert-success" role="alert">Registracija sekmingai pavyko</div>;
 
 
@@ -17,6 +19,9 @@ export function Register() {
     function handlePasswordChange(event) {
         setPassword(event.target.value);
     }
+    function handleUsernameChange(event) {
+        setUsername(event.target.value);
+    }
     function handleTosChange(event) {
         setChecked(event.target.checked); 
     }
@@ -25,21 +30,17 @@ export function Register() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log('siunciam duomenis');
-        console.log('email:', email);
-        console.log('password:', password);
-        console.log('TosCheck:', checked);
-        console.log('--------');
         
         fetch('http://localhost:5123/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ username, email, password }),
         })
             .then(res => res.json())
-            .then(data => {
+            .then(data => {               
+                setErrMsg(data.msg)
                 if (data.status === 'error') {
                     setAlert(registerError);
                 }
@@ -62,6 +63,10 @@ export function Register() {
                         <div className="col-md-10 mx-auto col-lg-6 col-xl-5">
                             <form onSubmit={handleSubmit} className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
                                 {alert}
+                                <div className="form-floating mb-3">
+                                    <input onChange={handleUsernameChange} value={username} type="text" className="form-control" id="username" placeholder="name" required />
+                                    <label htmlFor="email">Slapyvardis</label>
+                                </div>
                                 <div className="form-floating mb-3">
                                     <input onChange={handleEmailChange} value={email} type="email" className="form-control" id="email" placeholder="name@example.com" required />
                                     <label htmlFor="email">El. paštas</label>

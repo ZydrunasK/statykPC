@@ -59,6 +59,32 @@ export class IsValid {
     }
 
     /**
+     * Vartotojo slapyvardzio validavimas.
+     * @param {string} text slapyvardis
+     * @returns {[true, string] | [false, 'Ok']}
+     */
+    static username(text) {
+        const minSize = 2;
+        const maxSize = 30;
+
+        if (typeof text !== 'string') {
+            return [true, 'Slapyvardis turi buti teksto tipo.'];
+        }
+
+        if (text.length < minSize) {
+            return [true, `Slapyvardis turi buti ne trumpesnis nei ${minSize} simboliu.`];
+        }
+
+        if (text.length > maxSize) {
+            return [true, `Slapyvardis turi buti ne ilgesnis nei ${maxSize} simboliu.`];
+        }
+
+        // TODO: aprasyti daugiau taisykliu
+
+        return [false, 'Ok'];
+    }
+
+    /**
      * Slaptazodzio validavimas.
      * @param {string} text Slaptazodis
      * @returns {[true, string] | [false, 'Ok']}

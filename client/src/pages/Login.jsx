@@ -22,15 +22,10 @@ export function Login() {
                 },
                 body: JSON.stringify({ email, password })
         })
-        .then(res => {
-            console.log('Response status:', res.status);
-            if (!res.ok) {
-                throw new Error('Network response was not ok ' + res.statusText);
-            }
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
-            console.log('Response data:', data);
+            console.log(data);
+            
         })
         .catch(error => {
             console.error('Error:', error);

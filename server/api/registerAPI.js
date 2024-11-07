@@ -10,6 +10,10 @@ export async function registerPostAPI(req, res) {
         {
             field: 'password',
             validation: IsValid.password,
+        },
+        {
+            field: 'username',
+            validation: IsValid.username,
         }
     ];
     console.log(req.body);
@@ -22,12 +26,12 @@ export async function registerPostAPI(req, res) {
         });
     }
 
-    const { email, password} = req.body;
+    const { username, email, password} = req.body;
 
     try {
 
-        const sql = 'INSERT INTO users (email, password) VALUES (?, ?);';
-        const insertResult = await connection.execute(sql, [email, password]);
+        const sql = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?);';
+        const insertResult = await connection.execute(sql, [username, email, password]);
         console.log(insertResult);
         
         if(insertResult[0].affectedRows !== 1) {
@@ -38,11 +42,12 @@ export async function registerPostAPI(req, res) {
         }
 
     } catch (error) {
-        console.log(error);
+        
         if (error.code === 'ER_DUP_ENTRY') {
+            const errMsgKey = error.sqlMessage.split(' ').at(-1).slice(1, -1);
             return res.status(500).json({
-                status: error,
-                msg: 'toks email jau panaudotas'
+                status: 'error',
+                msg: `toks ${errMsgKey === 'username' ? 'slapyvardis' : errMsgKey} jau panaudotas`
             })
         }
         return res.status(400).json({

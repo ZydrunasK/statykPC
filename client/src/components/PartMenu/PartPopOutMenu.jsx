@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import s from './partMenu.module.css';
 import { useContext } from 'react';
-import { GlobalContext } from '../../context/GlobalContext';
+import { UserContext } from '../../context/UserContext';
 
 export function PartPopOutMenu() {
-    const {visible, handleVisible} = useContext(GlobalContext);
+    const {visible, handleVisible} = useContext(UserContext);
 
     return (
         <>

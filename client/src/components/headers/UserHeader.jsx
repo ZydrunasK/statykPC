@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import logo from '/src/assets/vite.svg';
 import { HeaderNav } from '../HeaderNav';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 
 export function UserHeader() {
-
+    const {logout} = useContext(UserContext);
+    function handleLogout() {
+        logout();
+    }
     return (
         <header >
 
@@ -18,7 +23,7 @@ export function UserHeader() {
             </form>
 
             <div className='text-end'>
-                <Link to='/' className='btn btn-primary'>Log Out</Link>
+                <Link onClick={handleLogout} to='/' className='btn btn-primary'>Log Out</Link>
             </div>
         </div>
         <div className="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">

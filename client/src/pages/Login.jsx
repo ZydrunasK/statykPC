@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 export function Login() {
+    const {login} = useContext(UserContext);
+
     const [email, setEmail] = useState('email@email.com');
     const [password, setPassword] = useState('email@email.comemail@email.com');
 
@@ -24,8 +27,10 @@ export function Login() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            
+            if(data.status === 'success') {
+                login();
+                
+            }
         })
         .catch(error => {
             console.error('Error:', error);

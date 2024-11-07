@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ContextWrapper } from './context/GlobalContext';
+import { ContextWrapper } from './context/UserContext';
 import { NotFound } from "./pages/NotFound.jsx";
 import { Main } from "./pages/Main.jsx";
 import { Login } from "./pages/Login.jsx";

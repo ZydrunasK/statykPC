@@ -9,10 +9,9 @@ export const initialContext = {
     handleVisible: () => {},
     login: () => {},
     logout: () => {},
-    tableMaker: () => {},
 };
 
-export const GlobalContext = createContext(initialContext);
+export const UserContext = createContext(initialContext);
 
 export function ContextWrapper(props) {
 
@@ -48,8 +47,8 @@ export function ContextWrapper(props) {
     };
 
     return (
-        <GlobalContext.Provider value={value}>
+        <UserContext.Provider value={value}>
             {props.children}
-        </GlobalContext.Provider>
+        </UserContext.Provider>
     );
 }

@@ -17,12 +17,10 @@ export function Memory() {
         }) 
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setPartArr(data);
             })
             .catch(error => console.log('error: ' + error));
     }, [])
-    console.log(partArr);
     
     
 

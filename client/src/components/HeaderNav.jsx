@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { MenuLink } from './MenuLink.jsx';
 import { PartPopOutMenu } from './PartMenu/PartPopOutMenu.jsx';
-import { GlobalContext } from '../context/GlobalContext.jsx';
+import { UserContext } from '../context/UserContext.jsx';
 
 export function HeaderNav() {
-    const {handleVisible} = useContext(GlobalContext);
+    const {handleVisible} = useContext(UserContext);
     return (
         <div className='headerNavDiv'>
 

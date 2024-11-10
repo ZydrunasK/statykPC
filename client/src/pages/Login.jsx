@@ -31,8 +31,6 @@ export function Login() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            
             if(data.status === 'success') {
                 login();
                 navigate('/')
@@ -40,7 +38,6 @@ export function Login() {
             if(data.status === 'error') {
                 setLoginError(<div className="alert alert-danger" role="alert">Registracija nepavyko: {data.msg}</div>);
             }
-            
         })
         .catch(error => {
             console.error('Error:', error);

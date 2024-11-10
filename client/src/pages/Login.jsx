@@ -8,6 +8,7 @@ export function Login() {
 
     const [email, setEmail] = useState('email@email.com');
     const [password, setPassword] = useState('email@email.comemail@email.com');
+    const [loginError, setLoginError] = useState('');
 
     function handleEmail(event) {
         setEmail(event.target.value);
@@ -25,15 +26,21 @@ export function Login() {
                 headers: {
                 'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ email, password }),
+                credentials: 'include'
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             
             if(data.status === 'success') {
                 login();
                 navigate('/')
             }
+            if(data.status === 'error') {
+                setLoginError(<div className="alert alert-danger" role="alert">Registracija nepavyko: {data.msg}</div>);
+            }
+            
         })
         .catch(error => {
             console.error('Error:', error);
@@ -51,6 +58,7 @@ export function Login() {
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-md-10 mx-auto col-lg-6 col-xl-5">
                             <form onSubmit={handleSubmit} className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                                {loginError}
                                 <div className="form-floating mb-3">
                                     <input type="email" onChange={handleEmail} value={email} className="form-control" id="email" placeholder="name@example.com" required />
                                     <label htmlFor="email">El. paštas</label>

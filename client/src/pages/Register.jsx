@@ -5,11 +5,10 @@ export function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const [errMsg, setErrMsg] = useState('');
+    const [registerError, setRegisterError] = useState('');
     const [checked, setChecked] = useState(false);
     const [alert, setAlert] = useState('');
 
-    const registerError = <div className="alert alert-danger" role="alert">Registracija nepavyko: {errMsg}</div>;
     const registerSuccess = <div className="alert alert-success" role="alert">Registracija sekmingai pavyko</div>;
 
 
@@ -41,7 +40,8 @@ export function Register() {
         })
             .then(res => res.json())
             .then(data => {               
-                setErrMsg(data.msg)
+                setRegisterError(<div className="alert alert-danger" role="alert">Registracija nepavyko: {data.msg}</div>);
+
                 if (data.status === 'error') {
                     setAlert(registerError);
                 }

@@ -6,7 +6,7 @@ import { UserContext } from '../../context/UserContext';
 
 
 export function UserHeader() {
-    const {logout} = useContext(UserContext);
+    const {logout, role} = useContext(UserContext);
     function handleLogout() {
         logout();
     }
@@ -16,6 +16,7 @@ export function UserHeader() {
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mt-2">
             <Link to='/' className="d-inline-flex link-body-emphasis text-decoration-none">
                 <img src={logo} alt="Logo" />
+                {role}
             </Link>
 
             <form role="search">
@@ -23,6 +24,7 @@ export function UserHeader() {
             </form>
 
             <div className='text-end'>
+                <Link to='/' className='btn btn-primary'>Profile</Link>
                 <Link onClick={handleLogout} to='/' className='btn btn-primary'>Log Out</Link>
             </div>
         </div>

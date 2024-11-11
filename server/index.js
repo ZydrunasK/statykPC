@@ -8,7 +8,7 @@ import { registerPostAPI } from "./api/registerAPI.js";
 import { motherboardGetAPI } from "./api/motherboardsAPI.js";
 import { memoryGetAPI } from "./api/memoryAPI.js";
 import cookieParser from "cookie-parser";
-import { loginPostAPI } from "./api/loginAPI.js";
+import { loginGetAPI, loginPostAPI } from "./api/loginAPI.js";
 
 
 const app = e();
@@ -36,7 +36,7 @@ app.get('/api/Memory', memoryGetAPI);
 app.post('/api/login', loginPostAPI);
 // app.get('/api/logout', logoutPostAPI);
 
-// app.get('/api/postGetAPI',);
+app.get('/api/login', loginGetAPI);
 // app.post('/api/postPostAPI',);
 // app.put('/api/postPutAPI',);
 // app.delete('/api/postDelteAPI',);

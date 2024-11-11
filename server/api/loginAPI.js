@@ -63,7 +63,7 @@ export async function loginPostAPI(req, res) {
     /* cookie max age in seconds */
     const maxAge = 20 * 60;
     const cookie = [
-        'LoginToken=' + token,
+        'loginToken=' + token,
         'domain=localhost',
         'path=/',
         'max-age=' + maxAge,
@@ -83,4 +83,9 @@ export async function loginPostAPI(req, res) {
         username: user.username,
         email: user.email,
     })
+}
+
+export async function loginGetAPI(req, res) {
+    const { loginToken } = req.cookie;
+    console.log("get API: ", loginToken);
 }

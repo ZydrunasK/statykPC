@@ -86,6 +86,11 @@ export async function loginPostAPI(req, res) {
 }
 
 export async function loginGetAPI(req, res) {
-    const { loginToken } = req.cookie;
-    console.log("get API: ", loginToken);
+    
+    console.log(req.user);
+    
+    return res.status(200).json({
+        status: 'success',
+        msg: 'kazkas gryzo'
+    })
 }

@@ -9,6 +9,7 @@ import { motherboardGetAPI } from "./api/motherboardsAPI.js";
 import { memoryGetAPI } from "./api/memoryAPI.js";
 import cookieParser from "cookie-parser";
 import { loginGetAPI, loginPostAPI } from "./api/loginAPI.js";
+import { getUserData } from "./middleware/getUserData.js";
 
 
 const app = e();
@@ -26,7 +27,7 @@ app.use(cors({
 }));
 
 app.use(cookieParser());
-
+app.use(getUserData);
 
 app.get('/', homePage);
 

@@ -20,6 +20,13 @@ export function ContextWrapper(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(initialContext.isLoggedIn);
 
     useEffect(() => {
+        fetch('http://localhost:5123/api/login', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+
         setIsLoggedIn(() => false);
         setRole(() => 'public');
     }, [])

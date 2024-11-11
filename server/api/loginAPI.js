@@ -21,7 +21,11 @@ export async function loginPostAPI(req, res) {
     let user = null;
 
     try {
-        const sql = `SELECT * FROM users WHERE email = ? AND password = ?;`;
+        const sql = `
+        SELECT role, users.id AS id, email, username FROM users
+        INNER JOIN roles
+            ON users.role_id = roles.id
+        WHERE email = ? AND password = ?;`;
         const selectResult = await connection.execute(sql, [email, password]);
 
         if (selectResult[0].length !== 1) {
@@ -78,7 +82,7 @@ export async function loginPostAPI(req, res) {
     .json({
         status: 'success',
         msg: 'OK',
-        role: 'user',
+        role: user.role,
         id: user.id,
         username: user.username,
         email: user.email,

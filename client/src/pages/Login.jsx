@@ -32,15 +32,16 @@ export function Login() {
         .then(res => res.json())
         .then(data => {
             if(data.status === 'success') {
-                login();
+                console.log(data);
+                login(data);
                 navigate('/')
             }
             if(data.status === 'error') {
                 setLoginError(<div className="alert alert-danger" role="alert">Registracija nepavyko: {data.msg}</div>);
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
+        .catch(() => {
+            setLoginError(<div className="alert alert-danger" role="alert">Registracija nepavyko</div>);
         });
     }
         

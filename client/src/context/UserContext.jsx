@@ -4,6 +4,9 @@ import { createContext, useEffect, useState } from "react";
 
 export const initialContext = {
     role: 'public',
+    userId: -1,
+    email: '',
+    username: '',
     isLoggedIn: false,
     visible: false,
     handleVisible: () => {},
@@ -17,6 +20,9 @@ export function ContextWrapper(props) {
 
     const [visible, setVisible] = useState(initialContext.visible);
     const [role, setRole] = useState(initialContext.role);
+    const [userId, setUserId] = useState(initialContext.userId);
+    const [email, setEmail] = useState(initialContext.email);
+    const [username, setUsername] = useState(initialContext.username);
     const [isLoggedIn, setIsLoggedIn] = useState(initialContext.isLoggedIn);
 
     useEffect(() => {
@@ -25,7 +31,7 @@ export function ContextWrapper(props) {
             credentials: 'include'
         })
         .then(res => res.json())
-        .then(data => console.log('client side'))
+        .then(data => data)
 
         setIsLoggedIn(() => false);
         setRole(() => 'public');
@@ -34,18 +40,27 @@ export function ContextWrapper(props) {
     function handleVisible() {
         setVisible(pre => !pre);
     }
-    function login() {
+    function login(userData) {
         setIsLoggedIn(() => true);
-        setRole(() => 'user');
+        setRole(() => userData.role);
+        setUserId(() => userData.id);
+        setEmail(() => userData.email);
+        setUsername(() => userData.username);
     }
     function logout() {
         setIsLoggedIn(() => false);
-        setRole(() => 'public');
+        setRole(() => initialContext.role);
+        setUserId(() => initialContext.userId);
+        setEmail(() => initialContext.email);
+        setUsername(() => initialContext.username);
     }
 
 
     const value = {
         role,
+        userId,
+        email,
+        username,
         visible,
         isLoggedIn,
         login,

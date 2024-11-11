@@ -87,7 +87,7 @@ export async function loginPostAPI(req, res) {
 
 export async function loginGetAPI(req, res) {
     
-    console.log(req.user);
+
     
     return res.status(200).json({
         status: 'success',

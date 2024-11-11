@@ -25,7 +25,7 @@ export function ContextWrapper(props) {
             credentials: 'include'
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log('client side'))
 
         setIsLoggedIn(() => false);
         setRole(() => 'public');

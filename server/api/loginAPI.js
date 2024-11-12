@@ -128,9 +128,7 @@ export async function loginGetAPI(req, res) {
         INNER JOIN roles
             ON users.role_id = roles.id
         WHERE token = ?;`;
-        const selectResult = await connection.execute(sql, [loginToken]);
-        console.log('sesija: ', selectResult[0]);
-        
+        const selectResult = await connection.execute(sql, [loginToken]);        
         if (selectResult[0].length !== 1) {
             return res.status(500).json({
                 status: 'error',
@@ -141,9 +139,7 @@ export async function loginGetAPI(req, res) {
         tokenObj = selectResult[0][0];
         
         
-        if (tokenObj.created_at.getTime() + COOKIE_MAX_AGE * 1000 < Date.now()) {
-            console.log('baiges cookie');
-            
+        if (tokenObj.created_at.getTime() + COOKIE_MAX_AGE * 1000 < Date.now()) {            
             const cookie = [
                 'loginToken=' + loginToken,
                 'domain=localhost',

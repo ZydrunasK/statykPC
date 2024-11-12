@@ -7,9 +7,20 @@ import { UserContext } from '../../context/UserContext';
 
 export function UserHeader() {
     const {logout, role} = useContext(UserContext);
+
     function handleLogout() {
-        logout();
+        fetch('http://localhost:5123/api/logout', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                logout();
+            }
+        })
     }
+    
     return (
         <header >
 

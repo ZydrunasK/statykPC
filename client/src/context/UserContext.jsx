@@ -31,10 +31,13 @@ export function ContextWrapper(props) {
             credentials: 'include'
         })
         .then(res => res.json())
-        .then(data => data)
-
-        setIsLoggedIn(() => false);
-        setRole(() => 'public');
+        .then(data => {
+            if (data.status === 'error') {
+                logout()
+            } else {
+                login(data)
+            }
+        })
     }, [])
 
     function handleVisible() {

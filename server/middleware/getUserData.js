@@ -10,7 +10,6 @@ export async function getUserData(req, res, next) {
         role: 'public',
         isLoggedIn: false,
     }
-    console.log('-------> ', req.user);
 
     const {loginToken} = req.cookies;
     let tokenObj = null;
@@ -81,7 +80,6 @@ export async function getUserData(req, res, next) {
         role: tokenObj.role,
         isLoggedIn: true,
     }
-    console.log('-------> ', req.user);
     
     next(); 
 }

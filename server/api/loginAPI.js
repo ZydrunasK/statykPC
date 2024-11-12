@@ -1,5 +1,5 @@
 import { connection } from "../db.js";
-import { COOKIE_SIZE } from "../env.js";
+import { COOKIE_ALLOWED_SYMBOLS, COOKIE_MAX_AGE, COOKIE_SIZE } from "../env.js";
 import { IsValid } from "../lib/IsValid.js";
 import { randomString } from "../lib/randomString.js";
 
@@ -90,11 +90,91 @@ export async function loginPostAPI(req, res) {
 }
 
 export async function loginGetAPI(req, res) {
+    // patikrinti ar turim galiojanti cookie(loginToken)
+    const {loginToken} = req.cookies;
     
+    if (!loginToken) {
+        return res.status(400).json({
+            status: 'error',
+            msg: 'ERROR: nera loginToken'
+        })
+    }
 
-    
+    if (typeof loginToken !== 'string'
+        || loginToken.length !== COOKIE_SIZE) {
+            return res.status(400).json({
+                status: 'error',
+                msg: 'ERROR: neteisingas loginToken'
+            })
+    }
+
+    for (const s of loginToken) {
+        if (!COOKIE_ALLOWED_SYMBOLS.includes(s)) {
+            return res.status(400).json({
+                status: 'error',
+                msg: 'ERROR: neteisingas loginToken'
+            })
+        }
+    }
+
+    let tokenObj = null;
+
+    try {
+
+        const sql = `
+        SELECT role, users.id AS id, email, username, created_at FROM users
+        INNER JOIN tokens
+            ON users.id = tokens.user_id
+        INNER JOIN roles
+            ON users.role_id = roles.id
+        WHERE token = ?;`;
+        const selectResult = await connection.execute(sql, [loginToken]);
+        console.log('sesija: ', selectResult[0]);
+        
+        if (selectResult[0].length !== 1) {
+            return res.status(500).json({
+                status: 'error',
+                msg: 'ERROR: nepavyko atpazinti vartotojo sesijos'
+            })
+        }
+
+        tokenObj = selectResult[0][0];
+        
+        
+        if (tokenObj.created_at.getTime() + COOKIE_MAX_AGE * 1000 < Date.now()) {
+            console.log('baiges cookie');
+            
+            const cookie = [
+                'loginToken=' + loginToken,
+                'domain=localhost',
+                'path=/',
+                'max-age=-1',
+                'SameSite=Lax',
+                // 'Secure',
+                'HttpOnly',
+            ];
+
+            return res
+                .status(200)
+                .set('Set-Cookie', cookie.join('; '))
+                .json({
+                    status: 'error',
+                    msg: 'kazkas cia jau pridirbo',
+                });
+        }
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            msg: 'ERROR: nepavyko atpazinti vartotojo sesijos'
+        });
+    }
+
     return res.status(200).json({
         status: 'success',
-        msg: 'kazkas gryzo'
+        msg: 'OK',
+        role: tokenObj.role,
+        id: tokenObj.id,
+        username: tokenObj.username,
+        email: tokenObj.email,
     })
 }

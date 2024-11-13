@@ -17,6 +17,7 @@ import { PSU } from "./pages/parts/PSU.jsx";
 import { UserLayout } from "./layout/UserLayout.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Case } from "./pages/parts/Case.jsx";
+import { Build } from "./pages/build.jsx";
 
 export function App() {
 
@@ -30,6 +31,7 @@ export function App() {
             <Route path='/register' element={<Register />}></Route>
             <Route path='/forum' element={<Forum />}></Route>
             <Route path='/faq' element={<Faq />}></Route>
+            <Route path='/Build' element={<Build />}></Route>
             {/* parts routes  */}
             <Route path='/dalys/Memory' element={<Memory />}></Route>
             <Route path='/dalys/Storage' element={<Storage />}></Route>
@@ -48,6 +50,7 @@ export function App() {
             <Route path='/profile' element={<Profile />}></Route>
             <Route path='/forum' element={<Forum />}></Route>
             <Route path='/faq' element={<Faq />}></Route>
+            <Route path='/Build' element={<Build />}></Route>
             {/* parts routes  */}
             <Route path='/dalys/Memory' element={<Memory />}></Route>
             <Route path='/dalys/Storage' element={<Storage />}></Route>

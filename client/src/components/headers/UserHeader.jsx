@@ -35,7 +35,7 @@ export function UserHeader() {
             </form>
 
             <div className='text-end'>
-                <Link to='/' className='btn btn-primary'>Profile</Link>
+                <Link to='/profile' className='btn btn-primary'>Profile</Link>
                 <Link onClick={handleLogout} to='/' className='btn btn-primary'>Log Out</Link>
             </div>
         </div>

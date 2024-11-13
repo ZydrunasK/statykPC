@@ -1,0 +1,34 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+.infoCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+}
+.profileInfoCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    padding: 2rem;
+    gap: 1rem;
+}
+.userDetailsCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}
+.moreInfoCont {
+    background-color: green;
+}
+.img {
+    width: 200px;
+}

@@ -11,25 +11,28 @@ export function PartPopOutMenu() {
         <div className={s.partMenuDiv} data-visible={visible}>
             <ul className={s.partMenu}>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/CPU' className={s.name}>Procesoriai</Link>
+                    <Link to='/dalys/CPU' className={s.name}>Procesoriai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
+                    <Link to='/dalys/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/Memory' className={s.name}>Atmintis (RAM)</Link>
+                    <Link to='/dalys/Memory' className={s.name}>Atmintis (RAM)</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/GPU' className={s.name}>Vaizdo kortos</Link>
+                    <Link to='/dalys/GPU' className={s.name}>Vaizdo kortos</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/Storage' className={s.name}>Kietieji diskai</Link>
+                    <Link to='/dalys/Storage' className={s.name}>Kietieji diskai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/Cooler' className={s.name}>Ausintuvai</Link>
+                    <Link to='/dalys/Cooler' className={s.name}>Ausintuvai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/PSU' className={s.name}>Maitinimo saltiniai</Link>
+                    <Link to='/dalys/PSU' className={s.name}>Maitinimo saltiniai</Link>
+                </li>
+                <li onClick={handleVisible} className={s.part}>
+                    <Link to='/dalys/Case' className={s.name}>Korpusas</Link>
                 </li>
             </ul>
         </div>

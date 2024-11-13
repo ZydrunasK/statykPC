@@ -16,6 +16,7 @@ import { Cooler } from "./pages/parts/Cooler.jsx";
 import { PSU } from "./pages/parts/PSU.jsx";
 import { UserLayout } from "./layout/UserLayout.jsx";
 import { Profile } from "./pages/Profile.jsx";
+import { Case } from "./pages/parts/Case.jsx";
 
 export function App() {
 
@@ -29,14 +30,17 @@ export function App() {
             <Route path='/register' element={<Register />}></Route>
             <Route path='/forum' element={<Forum />}></Route>
             <Route path='/faq' element={<Faq />}></Route>
-            <Route path='/Memory' element={<Memory />}></Route>
-            <Route path='/Storage' element={<Storage />}></Route>
-            <Route path='/MotherBoard' element={<MotherBoard />}></Route>
-            <Route path='/CPU' element={<CPU />}></Route>
-            <Route path='/GPU' element={<GPU />}></Route>
-            <Route path='/PSU' element={<PSU />}></Route>
-            <Route path='/Storage' element={<Storage />}></Route>
-            <Route path='/Cooler' element={<Cooler />}></Route>
+            {/* parts routes  */}
+            <Route path='/dalys/Memory' element={<Memory />}></Route>
+            <Route path='/dalys/Storage' element={<Storage />}></Route>
+            <Route path='/dalys/MotherBoard' element={<MotherBoard />}></Route>
+            <Route path='/dalys/CPU' element={<CPU />}></Route>
+            <Route path='/dalys/GPU' element={<GPU />}></Route>
+            <Route path='/dalys/PSU' element={<PSU />}></Route>
+            <Route path='/dalys/Storage' element={<Storage />}></Route>
+            <Route path='/dalys/Cooler' element={<Cooler />}></Route>
+            <Route path='/dalys/Case' element={<Case />}></Route>
+
           </Route>
 
           <Route Component={UserLayout}>
@@ -44,14 +48,16 @@ export function App() {
             <Route path='/profile' element={<Profile />}></Route>
             <Route path='/forum' element={<Forum />}></Route>
             <Route path='/faq' element={<Faq />}></Route>
-            <Route path='/Memory' element={<Memory />}></Route>
-            <Route path='/Storage' element={<Storage />}></Route>
-            <Route path='/MotherBoard' element={<MotherBoard />}></Route>
-            <Route path='/CPU' element={<CPU />}></Route>
-            <Route path='/GPU' element={<GPU />}></Route>
-            <Route path='/PSU' element={<PSU />}></Route>
-            <Route path='/Storage' element={<Storage />}></Route>
-            <Route path='/Cooler' element={<Cooler />}></Route>
+            {/* parts routes  */}
+            <Route path='/dalys/Memory' element={<Memory />}></Route>
+            <Route path='/dalys/Storage' element={<Storage />}></Route>
+            <Route path='/dalys/MotherBoard' element={<MotherBoard />}></Route>
+            <Route path='/dalys/CPU' element={<CPU />}></Route>
+            <Route path='/dalys/GPU' element={<GPU />}></Route>
+            <Route path='/dalys/PSU' element={<PSU />}></Route>
+            <Route path='/dalys/Storage' element={<Storage />}></Route>
+            <Route path='/dalys/Cooler' element={<Cooler />}></Route>
+            <Route path='/dalys/Case' element={<Case />}></Route>
           </Route>
 
           <Route path='*' element={<NotFound />}></Route>

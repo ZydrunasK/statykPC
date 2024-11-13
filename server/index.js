@@ -39,9 +39,7 @@ app.post('/api/login', loginPostAPI);
 app.get('/api/logout', logoutGetAPI);
 
 app.get('/api/login', loginGetAPI);
-// app.post('/api/postPostAPI',);
-// app.put('/api/postPutAPI',);
-// app.delete('/api/postDelteAPI',);
+
 
 app.get('*', notFoundPage);
 

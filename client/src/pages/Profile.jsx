@@ -11,7 +11,7 @@ export function Profile() {
                     <div className={s.userDetailsCont}>
                         <h2>USERNAME</h2>
                         <p>EMAIL</p>
-                        <p>BUILDS</p>
+                        <p>BUILDS(NUM)</p>
                         <p>SETTINGS</p>
                     </div>
 

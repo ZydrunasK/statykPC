@@ -11,6 +11,7 @@ import cookieParser from "cookie-parser";
 import { loginGetAPI, loginPostAPI } from "./api/loginAPI.js";
 import { getUserData } from "./middleware/getUserData.js";
 import { logoutGetAPI } from "./api/logoutAPI.js";
+import { profileGetApi } from "./api/profileAPI.js";
 
 
 const app = e();
@@ -39,6 +40,7 @@ app.post('/api/login', loginPostAPI);
 app.get('/api/logout', logoutGetAPI);
 
 app.get('/api/login', loginGetAPI);
+app.get('/api/profile', profileGetApi);
 
 
 app.get('*', notFoundPage);

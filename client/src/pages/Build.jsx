@@ -1,12 +1,9 @@
+import { BuildPartsList } from '../components/BuildPartsList.jsx';
 import s from './pagesCSS/build.module.css';
+
 
 export function Build() {
 
-    const part = <div className={s.partDiv}>
-        <img src="#" alt="partPIC" />
-        <p className={s.para}>TYPE</p>
-        <p className={s.para}>PART NAME / CHOOSE PART</p>
-    </div>;
 
     return (
 
@@ -20,12 +17,7 @@ export function Build() {
                 </header>
 
                 <section className={s.buildSect}>
-                    {part}
-                    {part}
-                    {part}
-                    {part}
-                    {part}
-                    {part}
+                    {BuildPartsList()}
                 </section>
 
                 <footer className={s.foot}>

@@ -14,25 +14,25 @@ export function PartPopOutMenu() {
                     <Link to='/dalys/CPU' className={s.name}>Procesoriai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/MotherBoard' className={s.name}>Pagrindines plokstes</Link>
+                    <Link to='/dalys/Ausintuvai' className={s.name}>Ausintuvai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/Memory' className={s.name}>Atmintis (RAM)</Link>
+                    <Link to='/dalys/Pagrindines-plokstes' className={s.name}>Pagrindines plokstes</Link>
+                </li>
+                <li onClick={handleVisible} className={s.part}>
+                    <Link to='/dalys/Atmintis' className={s.name}>Atmintis (RAM)</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
                     <Link to='/dalys/GPU' className={s.name}>Vaizdo kortos</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/Storage' className={s.name}>Kietieji diskai</Link>
+                    <Link to='/dalys/Kietieji-diskai' className={s.name}>Kietieji diskai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/Cooler' className={s.name}>Ausintuvai</Link>
+                    <Link to='/dalys/Maitinimo-blokai' className={s.name}>Maitinimo saltiniai</Link>
                 </li>
                 <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/PSU' className={s.name}>Maitinimo saltiniai</Link>
-                </li>
-                <li onClick={handleVisible} className={s.part}>
-                    <Link to='/dalys/Case' className={s.name}>Korpusas</Link>
+                    <Link to='/dalys/Korpusai' className={s.name}>Korpusas</Link>
                 </li>
             </ul>
         </div>

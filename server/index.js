@@ -5,13 +5,12 @@ import { notFoundPage } from "./lib/notFoundPage.js";
 import { notFoundResponse } from "./middleware/notFoundResponse.js";
 import { fatalServerErrorResponse } from "./middleware/fatalServerErrorResponse.js";
 import { registerPostAPI } from "./api/registerAPI.js";
-import { motherboardGetAPI } from "./api/motherboardsAPI.js";
-import { memoryGetAPI } from "./api/memoryAPI.js";
 import cookieParser from "cookie-parser";
 import { loginGetAPI, loginPostAPI } from "./api/loginAPI.js";
 import { getUserData } from "./middleware/getUserData.js";
 import { logoutGetAPI } from "./api/logoutAPI.js";
 import { profileGetApi } from "./api/profileAPI.js";
+import { dalysAPIRouter } from "./router/dalysRouter.js";
 
 
 const app = e();
@@ -34,10 +33,11 @@ app.use(getUserData);
 app.get('/', homePage);
 
 app.post('/api/register', registerPostAPI);
-app.get('/api/MotherBoard', motherboardGetAPI);
-app.get('/api/Memory', memoryGetAPI);
 app.post('/api/login', loginPostAPI);
 app.get('/api/logout', logoutGetAPI);
+
+// GET parts
+app.use('/api/dalys', dalysAPIRouter)
 
 app.get('/api/login', loginGetAPI);
 app.get('/api/profile', profileGetApi);

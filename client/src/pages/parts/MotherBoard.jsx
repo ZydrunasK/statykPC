@@ -49,11 +49,11 @@ export function MotherBoard() {
         },
     ];
     const [partsArr, setPartsArr] = useState(parts)
-    const partInfo = ['part_name', 'chipset', 'form_factor', 'socket','memory_type', 'max_memory_speed']; 
-    const head = ['name', 'chipset', 'form factor', 'socket', 'memory type', 'max memory speed']; 
+    const wantedPartInfo = ['part_name', 'chipset', 'form_factor', 'socket','memory_type', 'max_memory_speed', 'memory_slots']; 
+    const head = ['name', 'chipset', 'form factor', 'socket', 'memory type', 'max memory speed', 'memory slots']; 
     
     useEffect(() => {
-        fetch('http://localhost:5123/api/Motherboard', {
+        fetch('http://localhost:5123/api/dalys/Pagrindines-plokstes', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export function MotherBoard() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(partInfo, partsArr, head)}
+                {tableMaker(wantedPartInfo, partsArr, head)}
             </div>
         </main>
     );

@@ -4,25 +4,26 @@ import { tableMaker } from '../../functions/tableMaker.jsx';
 import s from './parts.module.css';
 
 export function Memory() {
-    const [partArr, setPartArr] = useState(null)
-    const partInfoArr = ['part_name', 'RAM_type', 'RAM_speed', 'modules_amount', 'CAS_latency'];
-    const headers = ['name', 'type', 'speed', 'modules amount', 'CAS latency'];
-    useEffect (() => {
-        fetch('http://localhost:5123/api/Memory', {
+
+    const [partsArr, setPartsArr] = useState('');
+    const partInfo = ['part_name', 'form_factor', 'RAM_type','RAM_speed', 'CAS_latency', 'modules_amount']; 
+    const head = ['Pavadinimas', 'Jungties lizdas', 'Tipas', 'Greitis', 'CAS', 'Moduliu kiekis']; 
+    
+    useEffect(() => {
+        fetch('http://localhost:5123/api/dalys/Atmintis', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(),
-        }) 
-            .then(res => res.json())
-            .then(data => {
-                setPartArr(data);
-            })
-            .catch(error => console.log('error: ' + error));
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setPartsArr(data)
+        })
+        .catch(error => console.error(error));
     }, [])
-    
-    
 
     return (
         <main className={s.main}>
@@ -30,7 +31,7 @@ export function Memory() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(partInfoArr, partArr, headers)}
+                {tableMaker(partInfo, partsArr, head)}
             </div>
         </main>
     );

@@ -4,56 +4,13 @@ import { tableMaker } from '../../functions/tableMaker.jsx';
 import s from './parts.module.css';
 
 export function GPU() {
-    const parts = [
-        {
-            id: 1,
-            part_type: 'mobo',
-            part_name: 'Gigabyte b550 ds3h',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX'
-        },
-        {
-            id: 2,
-            part_type: 'mobo',
-            part_name: 'Asus b550M-K',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX'
-        },
-        {
-            id: 3,
-            part_type: 'mobo',
-            part_name: 'Asrock b550M Steel legend',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'micro ATX',
-            bomb: 'yabadabadoooo'
-        },
-        {
-            id: 4,
-            part_type: 'mobo',
-            part_name: 'Asrock b450M-HDV R4.0',
-            chipset: 'AMD b450',
-            memory: 'DDR4',
-            formFactor: 'micro ATX',
-            bomb: 't4'
-        },
-        {
-            id: 5,
-            part_type: 'mobo',
-            part_name: 'MSI b550',
-            chipset: 'AMD b550',
-            memory: 'DDR4',
-            formFactor: 'ATX',
-        },
-    ];
-    const [partsArr, setPartsArr] = useState(parts)
-    const partInfo = ['part_name', 'chipset', 'form_factor', 'socket','memory_type', 'max_memory_speed']; 
-    const head = ['name', 'chipset', 'form factor', 'socket', 'memory type', 'max memory speed']; 
+
+    const [partsArr, setPartsArr] = useState('');
+    const partInfo = ['manufacturer', 'part_name', 'chipset', 'memory','memory_type', 'power_connectors']; 
+    const head = ['Gamintojas', 'Pavadinimas', 'chipset', 'Atmintis', 'Atminties tipas', 'Maitinimo jungtys']; 
     
     useEffect(() => {
-        fetch('http://localhost:5123/api/Motherboard', {
+        fetch('http://localhost:5123/api/dalys/Vaizdo-plokstes', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

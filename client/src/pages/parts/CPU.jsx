@@ -1,49 +1,30 @@
 
+import { useEffect, useState } from 'react';
 import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
 import { tableMaker } from '../../functions/tableMaker.jsx';
 import s from './parts.module.css';
 
 export function CPU() {
-    const parts = [
-        {
-            id: 1,
-            part_type: 'CPU',
-            part_name: 'r5 5600',
-            architecture: 'zen 3',
-            coreClock: '3.5 GHz'
-        },
-        {
-            id: 2,
-            part_type: 'CPU',
-            part_name: 'r7 7700x',
-            architecture: 'zen 3',
-            coreClock: '3.5 GHz'
-        },
-        {
-            id: 3,
-            part_type: 'CPU',
-            part_name: 'i3 12100f',
-            architecture: 'alder lake',
-            coreClock: '3.5 GHz'
-        },
-        {
-            id: 4,
-            part_type: 'CPU',
-            part_name: 'i5 13500',
-            architecture: 'raptor lake',
-            coreClock: '3.5 GHz'
-        },
-        {
-            id: 5,
-            part_type: 'CPU',
-            part_name: 'r9 7950x',
-            architecture: 'zen 4',
-            coreClock: '3.5 GHz'
-        },
-    ];
-    const partInfo = ['part_type', 'part_name', 'architecture', 'coreClock'];
-    const headersArr = ['type', 'name', 'architecture', 'coreClock'];
 
+    const [partsArr, setPartsArr] = useState('')
+    const partInfo = ['manufacturer', 'part_name', 'socket', 'core_clock', 'boost_clock', 'TDP'];
+    const headersArr = ['Gamintojas', 'Pavadinimas', 'Lizdas', 'Branduoliu daznis', 'Boost daznis', 'TDP'];
+
+    useEffect(() => {
+        fetch('http://localhost:5123/api/dalys/CPU', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setPartsArr(data)
+        })
+        .catch(error => console.error(error));
+    }, [])
     
     return (
         <main className={s.main}>
@@ -51,7 +32,7 @@ export function CPU() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(partInfo, parts, headersArr)}
+                {tableMaker(partInfo, partsArr, headersArr)}
             </div>
         </main>
     );

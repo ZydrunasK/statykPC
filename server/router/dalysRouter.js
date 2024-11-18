@@ -4,7 +4,7 @@ import { memoryGetAPI } from "../api/dalysAPI/memoryAPI.js";
 import { coolerGetAPI } from "../api/dalysAPI/coolerAPI.js";
 import { caseGetAPI } from "../api/dalysAPI/caseAPI.js";
 import { cpuGetAPI } from "../api/dalysAPI/cpuAPI.js";
-import { gpuGetAPI } from "../api/dalysAPI/gpuAPI.js";
+import { gpusGetAPI } from "../api/dalysAPI/gpuAPI.js";
 import { psuGetAPI } from "../api/dalysAPI/psuAPI.js";
 import { storageGetAPI } from "../api/dalysAPI/storageAPI.js";
 
@@ -19,6 +19,6 @@ dalysAPIRouter.get('/Ausintuvai', coolerGetAPI);
 dalysAPIRouter.get('/Pagrindines-plokstes', motherboardGetAPI);
 dalysAPIRouter.get('/Atmintis', memoryGetAPI);
 dalysAPIRouter.get('/Kietieji-diskai', storageGetAPI);
-dalysAPIRouter.get('/GPU', gpuGetAPI);
+dalysAPIRouter.get('/Vaizdo-plokstes', gpusGetAPI);
 dalysAPIRouter.get('/Maitinimo-blokai', psuGetAPI);
 dalysAPIRouter.get('/Korpusai', caseGetAPI);

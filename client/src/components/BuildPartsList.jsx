@@ -16,13 +16,13 @@ export function BuildPartsList() {
     ];
     const partTypePageList = [
         '/CPU',
-        '/Cooler',
-        '/MotherBoard',
-        '/Memory',
-        '/Storage',
+        '/Ausintuvai',
+        '/Pagrindines-plokstes',
+        '/Atmintis',
+        '/Kietieji-diskai',
         '/GPU',
-        '/PSU',
-        '/Case'
+        '/Maitinimo-blokai',
+        '/Korpusai'
     ];
 
     const html = partTypeList.map((part, id) => <div key={id} className={s.partDiv}>

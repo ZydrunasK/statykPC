@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 /**
  * Makes simple table to show pc components(parts)
  * @param {Array} partInfoArr array of strings that match the keys which indicate the information of components wanted to show on the table
@@ -6,6 +7,7 @@
  * @returns A table of pc components(partsArr) with specific information(partInfoArr) from those components
  */
 export function tableMaker(partInfoArr, partsArr, headerArr) {
+
     if (!Array.isArray(partInfoArr)
         || !Array.isArray(partsArr)) {
         return 'error: params must be arrays';
@@ -17,6 +19,8 @@ export function tableMaker(partInfoArr, partsArr, headerArr) {
         return 'error: partInfoArr length and headerArr lenght must match';
     }
 
+
+
     const head = [];
     for (const th of headerArr) {
         head.push(<th key={th} className='partsTableTh'>{th}</th>)
@@ -26,6 +30,9 @@ export function tableMaker(partInfoArr, partsArr, headerArr) {
         body.push(
             <tr key={part.part_name + part.id} className='partsTableTr'>
                 {partInfoArr.map(str => <td key={str + 'Name'} className='partsTableTd'>{part[str]}</td>)}
+                <td className='partsTableTd'>
+                    <Link to='/build'>Pasirinkti</Link>
+                </td>
             </tr>);
     }
 

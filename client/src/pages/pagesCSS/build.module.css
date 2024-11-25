@@ -41,5 +41,27 @@
 .foot {
     background-color: red;
 }
+.table {
+    border: 1px solid #c7c7c7;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+}
+.tbody {
+    
+}
+.tr {
+    caption-side: top;
+    text-align: center;
+}
+.td {
+    text-align: left;
+    border: 1px solid #c7c7c7;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
 
     

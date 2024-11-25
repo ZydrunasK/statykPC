@@ -25,16 +25,30 @@ export function BuildPartsList() {
         '/Korpusai'
     ];
 
-    const html = partTypeList.map((part, id) => <div key={id} className={s.partDiv}>
-        <img src="#" alt="partPIC" />
-        <p className={s.para}>{part}</p>
-        <p className={s.para}>PART NAME</p>
-        <button onClick={() => navigate(`/dalys${partTypePageList[id]}`)}>CHOOSE PART</button>
-    </div>);
+    const tableBody = [];
+
+    for (let i = 0; i < partTypeList.length; i++) {
+        tableBody.push(
+            <tr className={s.tr} key={i + 50}>
+                <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                <td  className={s.td}>{partTypeList[i]}</td>
+                <td  className={s.td}>PART NAME</td>
+                <td  className={s.td}>
+                    <button onClick={() => navigate(`/dalys${partTypePageList[i]}`)}>CHOOSE PART</button>
+                </td>
+            </tr>
+        );
+    }
+    console.log(tableBody);
+    
  
     return (
         <>
-            {html}        
+            <table className={s.table}>
+                <tbody className={s.tbody}>
+                    {tableBody}
+                </tbody>
+            </table>       
         </>
     )
 }

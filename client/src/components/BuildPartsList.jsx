@@ -39,8 +39,6 @@ export function BuildPartsList() {
             </tr>
         );
     }
-    console.log(tableBody);
-    
  
     return (
         <>

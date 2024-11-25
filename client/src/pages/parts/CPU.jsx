@@ -1,10 +1,23 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
-import { tableMaker } from '../../functions/tableMaker.jsx';
+import { TableMaker } from '../../functions/TableMaker.jsx';
 import s from './parts.module.css';
+import { useNavigate } from 'react-router-dom';
+import { BuildContext } from '../../context/BuildContext.jsx';
 
 export function CPU() {
+
+    
+    const {selectPart} = useContext(BuildContext)
+    const navigate = useNavigate();
+
+    function handleSelect(event, part) {
+        event.preventDefault();
+        selectPart(part);
+        console.log(part);
+        navigate('/build');
+    }
 
     const [partsArr, setPartsArr] = useState('')
     const partInfo = ['manufacturer', 'part_name', 'socket', 'core_clock', 'boost_clock', 'TDP'];
@@ -20,11 +33,12 @@ export function CPU() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             setPartsArr(data)
         })
         .catch(error => console.error(error));
     }, [])
+
+    
     
     return (
         <main className={s.main}>
@@ -32,7 +46,7 @@ export function CPU() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(partInfo, partsArr, headersArr)}
+                {TableMaker(partInfo, partsArr, headersArr, handleSelect)}
             </div>
         </main>
     );

@@ -18,51 +18,54 @@ import { UserLayout } from "./layout/UserLayout.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Case } from "./pages/parts/Case.jsx";
 import { Build } from "./pages/build.jsx";
+import { BuildContextWrapper } from "./context/BuildContext.jsx";
 
 export function App() {
 
   return (
       <ContextWrapper>
-      <BrowserRouter>
-        <Routes>
-          <Route Component={PublicLayout}>
-            <Route index path='/' element={<Main />}></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/register' element={<Register />}></Route>
-            <Route path='/forum' element={<Forum />}></Route>
-            <Route path='/faq' element={<Faq />}></Route>
-            <Route path='/Build' element={<Build />}></Route>
-            {/* parts routes  */}
-            <Route path='/dalys/CPU' element={<CPU />}></Route>
-            <Route path='/dalys/Ausintuvai' element={<Cooler />}></Route>
-            <Route path='/dalys/Pagrindines-plokstes' element={<MotherBoard />}></Route>
-            <Route path='/dalys/Atmintis' element={<Memory />}></Route>
-            <Route path='/dalys/Kietieji-diskai' element={<Storage />}></Route>
-            <Route path='/dalys/GPU' element={<GPU />}></Route>
-            <Route path='/dalys/Maitinimo-blokai' element={<PSU />}></Route>
-            <Route path='/dalys/Korpusai' element={<Case />}></Route>
-          </Route>
+      <BuildContextWrapper>
+        <BrowserRouter>
+          <Routes>
+            <Route Component={PublicLayout}>
+              <Route index path='/' element={<Main />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/register' element={<Register />}></Route>
+              <Route path='/forum' element={<Forum />}></Route>
+              <Route path='/faq' element={<Faq />}></Route>
+              <Route path='/Build' element={<Build />}></Route>
+              {/* parts routes  */}
+              <Route path='/dalys/CPU' element={<CPU />}></Route>
+              <Route path='/dalys/Ausintuvai' element={<Cooler />}></Route>
+              <Route path='/dalys/Pagrindines-plokstes' element={<MotherBoard />}></Route>
+              <Route path='/dalys/Atmintis' element={<Memory />}></Route>
+              <Route path='/dalys/Kietieji-diskai' element={<Storage />}></Route>
+              <Route path='/dalys/GPU' element={<GPU />}></Route>
+              <Route path='/dalys/Maitinimo-blokai' element={<PSU />}></Route>
+              <Route path='/dalys/Korpusai' element={<Case />}></Route>
+            </Route>
 
-          <Route Component={UserLayout}>
-            <Route index path='/' element={<Main />}></Route>
-            <Route path='/profile' element={<Profile />}></Route>
-            <Route path='/forum' element={<Forum />}></Route>
-            <Route path='/faq' element={<Faq />}></Route>
-            <Route path='/Build' element={<Build />}></Route>
-            {/* parts routes  */}
-            <Route path='/dalys/CPU' element={<CPU />}></Route>
-            <Route path='/dalys/Ausintuvai' element={<Cooler />}></Route>
-            <Route path='/dalys/Pagrindines-plokstes' element={<MotherBoard />}></Route>
-            <Route path='/dalys/Atmintis' element={<Memory />}></Route>
-            <Route path='/dalys/Kietieji-diskai' element={<Storage />}></Route>
-            <Route path='/dalys/GPU' element={<GPU />}></Route>
-            <Route path='/dalys/Maitinimo-blokai' element={<PSU />}></Route>
-            <Route path='/dalys/Korpusai' element={<Case />}></Route>
-          </Route>
+            <Route Component={UserLayout}>
+              <Route index path='/' element={<Main />}></Route>
+              <Route path='/profile' element={<Profile />}></Route>
+              <Route path='/forum' element={<Forum />}></Route>
+              <Route path='/faq' element={<Faq />}></Route>
+              <Route path='/Build' element={<Build />}></Route>
+              {/* parts routes  */}
+              <Route path='/dalys/CPU' element={<CPU />}></Route>
+              <Route path='/dalys/Ausintuvai' element={<Cooler />}></Route>
+              <Route path='/dalys/Pagrindines-plokstes' element={<MotherBoard />}></Route>
+              <Route path='/dalys/Atmintis' element={<Memory />}></Route>
+              <Route path='/dalys/Kietieji-diskai' element={<Storage />}></Route>
+              <Route path='/dalys/GPU' element={<GPU />}></Route>
+              <Route path='/dalys/Maitinimo-blokai' element={<PSU />}></Route>
+              <Route path='/dalys/Korpusai' element={<Case />}></Route>
+            </Route>
 
-          <Route path='*' element={<NotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
+            <Route path='*' element={<NotFound />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </BuildContextWrapper>
       </ContextWrapper>
   )
 }

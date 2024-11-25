@@ -24,7 +24,7 @@ export function BuildPartsList() {
         '/Maitinimo-blokai',
         '/Korpusai'
     ];
-
+    
     const tableBody = [];
 
     for (let i = 0; i < partTypeList.length; i++) {

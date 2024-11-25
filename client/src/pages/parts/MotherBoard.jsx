@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
-import { tableMaker } from '../../functions/tableMaker.jsx';
+import { TableMaker } from '../../functions/TableMaker.jsx';
 import s from './parts.module.css';
 
 export function MotherBoard() {
@@ -74,7 +74,7 @@ export function MotherBoard() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(wantedPartInfo, partsArr, head)}
+                {TableMaker(wantedPartInfo, partsArr, head)}
             </div>
         </main>
     );

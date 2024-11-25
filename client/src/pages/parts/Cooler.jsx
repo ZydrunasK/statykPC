@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
-import { tableMaker } from '../../functions/tableMaker.jsx';
+import { TableMaker } from '../../functions/TableMaker.jsx';
 import s from './parts.module.css';
 
 export function Cooler() {
@@ -30,7 +30,7 @@ export function Cooler() {
             <ListFilter />
 
             <div className={s.partsList}>
-                {tableMaker(partInfo, partsArr, head)}
+                {TableMaker(partInfo, partsArr, head)}
             </div>
         </main>
     );

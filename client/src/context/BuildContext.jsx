@@ -13,10 +13,10 @@ export function BuildContextWrapper(props) {
     const [build, setBuild] = useState(initialContext.build);
 
     function selectPart(part) {
+        
         setBuild([...build, part]);
         console.log('something happened');
         console.log(build);
-        
     }
 
     const value = {

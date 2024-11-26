@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { BuildContext } from "../context/BuildContext";
+import { useNavigate } from "react-router-dom";
+
 /**
  * Makes simple table to show pc components(parts)
  * @param {Array} partInfoArr array of strings that match the keys which indicate the information of components wanted to show on the table
@@ -6,7 +10,17 @@
  * @param {Function} selectFunc function for the select part button (uses partsArr as parameter)
  * @returns A table of pc components(partsArr) with specific information(partInfoArr) from those components
  */
-export function TableMaker(partInfoArr, partsArr, headerArr, selectFunc) {
+export function TableMaker(partInfoArr, partsArr, headerArr) {
+
+    const {selectPart} = useContext(BuildContext)
+    const navigate = useNavigate();
+
+    function handleSelect(event, part) {
+        event.preventDefault();
+        selectPart(part);
+        console.log(part);
+        navigate('/build');
+    }
 
     if (!Array.isArray(partInfoArr)
         || !Array.isArray(partsArr)) {
@@ -29,7 +43,7 @@ export function TableMaker(partInfoArr, partsArr, headerArr, selectFunc) {
             <tr key={part.part_name + part.id} className='partsTableTr'>
                 {partInfoArr.map(str => <td key={str + 'Name'} className='partsTableTd'>{part[str]}</td>)}
                 <td className='partsTableTd'>
-                    <button to='/build' onClick={(event) => selectFunc(event, part)}>Pasirinkti</button>
+                    <button to='/build' onClick={(event) => handleSelect(event, part)}>Pasirinkti</button>
                 </td>
             </tr>);
     }

@@ -31,29 +31,99 @@ export function BuildPartsList() {
     const tableBody = [];
     build.sort((a, b) => a.part_type_id - b.part_type_id);
     console.log(build);
-    
-    
-
-    for (let i = 0; i < partTypeList.length; i++) {
-        tableBody.push(
-            <tr className={s.tr} key={i + 50}>
-                <td  className={s.td}><img src="#" alt="partPIC" /></td>
-                <td  className={s.td}>{partTypeList[i]}</td>
-                <td  className={s.td}>
-                    PART NAME 
-                </td>
-                <td  className={s.td}>
-                    <button onClick={() => navigate(`/dalys${partTypePageList[i]}`)}>CHOOSE PART</button>
-                </td>
-            </tr>
-        );
-    }
  
     return (
         <>
             <table className={s.table}>
                 <tbody className={s.tbody}>
-                    {tableBody}
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Procesorius</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/CPU`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Aušintuvas</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Ausintuvai`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Pagrindine plokštė</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Pagrindines-plokstes`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Atmintis (RAM)</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Atmintis`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Kietasis diskas</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Kietieji-diskai`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Vaizdo plokštė</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/GPU`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Maitinimo blokas</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Maitinimo-blokai`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
+                    <tr className={s.tr}>
+                        <td  className={s.td}><img src="#" alt="partPIC" /></td>
+                        <td  className={s.td}>Korpusas</td>
+                        <td  className={s.td}>
+                            PART NAME 
+                        </td>
+                        <td  className={s.td}>
+                            <button onClick={() => navigate(`/dalys/Korpusai`)}>CHOOSE PART</button>
+                        </td>
+                    </tr>
+                    
                 </tbody>
             </table>       
         </>

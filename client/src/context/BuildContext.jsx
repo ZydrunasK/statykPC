@@ -2,7 +2,16 @@
 import { createContext, useState } from "react";
 
 export const initialContext = {
-    build: [],
+    build: {
+        cpu: {},
+        ausintuvas: {},
+        pagrindinePlokste: {},
+        atmintis: [],
+        kietiejiDiskai: [],
+        gpu: [],
+        maitinimoBlokas: {},
+        korpusas: {},
+    },
     selectPart: () => {}
 };
 
@@ -13,10 +22,7 @@ export function BuildContextWrapper(props) {
     const [build, setBuild] = useState(initialContext.build);
 
     function selectPart(part) {
-        
         setBuild([...build, part]);
-        console.log('something happened');
-        console.log(build);
     }
 
     const value = {

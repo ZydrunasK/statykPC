@@ -34,8 +34,6 @@ export function BuildPartsList() {
         ? 'PART NAME' : build.find(part => part.part_type_id === partID).part_name;
         return partName;
     }
-
-    console.log(build);
  
     return (
         <>

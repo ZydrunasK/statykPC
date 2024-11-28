@@ -28,8 +28,13 @@ export function BuildPartsList() {
         '/Korpusai'
     ];
     
-    const tableBody = [];
-    build.sort((a, b) => a.part_type_id - b.part_type_id);
+    function partNameById(partID) {
+        const partName = build[0] === undefined 
+        ? 'PART NAME' : build.find(part => part.part_type_id === partID) === undefined 
+        ? 'PART NAME' : build.find(part => part.part_type_id === partID).part_name;
+        return partName;
+    }
+
     console.log(build);
  
     return (
@@ -40,11 +45,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Procesorius</td>
                         <td  className={s.td}>
-                            {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 1) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 1).part_name
-                            } 
+                            {partNameById(1)} 
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/CPU`)}>CHOOSE PART</button>
@@ -55,11 +56,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Aušintuvas</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 2) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 2).part_name
-                            }  
+                           {partNameById(2)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Ausintuvai`)}>CHOOSE PART</button>
@@ -70,11 +67,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Pagrindine plokštė</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 3) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 3).part_name
-                            }  
+                           {partNameById(3)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Pagrindines-plokstes`)}>CHOOSE PART</button>
@@ -85,11 +78,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Atmintis (RAM)</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 4) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 4).part_name
-                            }  
+                           {partNameById(4)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Atmintis`)}>CHOOSE PART</button>
@@ -100,11 +89,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Kietasis diskas</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 5) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 5).part_name
-                            }  
+                           {partNameById(5)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Kietieji-diskai`)}>CHOOSE PART</button>
@@ -115,11 +100,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Vaizdo plokštė</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 6) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 6).part_name
-                            }  
+                           {partNameById(6)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/GPU`)}>CHOOSE PART</button>
@@ -130,11 +111,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Maitinimo blokas</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 7) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 7).part_name
-                            }  
+                           {partNameById(7)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Maitinimo-blokai`)}>CHOOSE PART</button>
@@ -145,11 +122,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Korpusas</td>
                         <td  className={s.td}>
-                           {
-                            build[0] === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 8) === undefined 
-                            ? 'PART NAME' : build.find(part => part.part_type_id === 8).part_name
-                            }  
+                           {partNameById(8)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Korpusai`)}>CHOOSE PART</button>

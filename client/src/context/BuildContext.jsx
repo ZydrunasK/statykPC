@@ -22,7 +22,18 @@ export function BuildContextWrapper(props) {
     const [build, setBuild] = useState(initialContext.build);
 
     function selectPart(part) {
-        setBuild([...build, part]);
+        console.log('select part function');
+        console.log(part);
+        switch (part.part_type_id) {
+            case 1:
+            setBuild(build.cpu = part); 
+            console.log(build.cpu);
+               
+                break;
+        
+            default:
+                break;
+        }
     }
 
     const value = {

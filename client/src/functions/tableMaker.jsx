@@ -18,8 +18,7 @@ export function TableMaker(partInfoArr, partsArr, headerArr) {
     function handleSelect(event, part) {
         event.preventDefault();
         selectPart(part);
-        console.log(part);
-        navigate('/build');
+        // navigate('/build');
     }
 
     if (!Array.isArray(partInfoArr)

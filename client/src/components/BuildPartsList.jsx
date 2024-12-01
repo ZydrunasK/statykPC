@@ -7,31 +7,11 @@ export function BuildPartsList() {
     const navigate = useNavigate();
     const { build }  = useContext(BuildContext);
 
-    const partTypeList = [
-        'Procesorius',
-        'Aušintuvas',
-        'Pagrindine plokštė',
-        'Atmintis (RAM)',
-        'Kietasis diskas',
-        'Vaizdo plokštė',
-        'Maitinimo blokas',
-        'Korpusas'
-    ];
-    const partTypePageList = [
-        '/CPU',
-        '/Ausintuvai',
-        '/Pagrindines-plokstes',
-        '/Atmintis',
-        '/Kietieji-diskai',
-        '/GPU',
-        '/Maitinimo-blokai',
-        '/Korpusai'
-    ];
+
     
-    function partNameById(partID) {
-        const partName = build[0] === undefined 
-        ? 'PART NAME' : build.find(part => part.part_type_id === partID) === undefined 
-        ? 'PART NAME' : build.find(part => part.part_type_id === partID).part_name;
+    function partNameByType(partType) {
+        console.log();
+        
         return partName;
     }
  
@@ -43,7 +23,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Procesorius</td>
                         <td  className={s.td}>
-                            {partNameById(1)} 
+                            {partNameByType(1)} 
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/CPU`)}>CHOOSE PART</button>
@@ -54,7 +34,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Aušintuvas</td>
                         <td  className={s.td}>
-                           {partNameById(2)}  
+                           {partNameByType(2)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Ausintuvai`)}>CHOOSE PART</button>
@@ -65,7 +45,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Pagrindine plokštė</td>
                         <td  className={s.td}>
-                           {partNameById(3)}  
+                           {partNameByType(3)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Pagrindines-plokstes`)}>CHOOSE PART</button>
@@ -76,7 +56,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Atmintis (RAM)</td>
                         <td  className={s.td}>
-                           {partNameById(4)}  
+                           {partNameByType(4)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Atmintis`)}>CHOOSE PART</button>
@@ -87,7 +67,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Kietasis diskas</td>
                         <td  className={s.td}>
-                           {partNameById(5)}  
+                           {partNameByType(5)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Kietieji-diskai`)}>CHOOSE PART</button>
@@ -98,7 +78,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Vaizdo plokštė</td>
                         <td  className={s.td}>
-                           {partNameById(6)}  
+                           {partNameByType(6)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/GPU`)}>CHOOSE PART</button>
@@ -109,7 +89,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Maitinimo blokas</td>
                         <td  className={s.td}>
-                           {partNameById(7)}  
+                           {partNameByType(7)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Maitinimo-blokai`)}>CHOOSE PART</button>
@@ -120,7 +100,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Korpusas</td>
                         <td  className={s.td}>
-                           {partNameById(8)}  
+                           {partNameByType(8)}  
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/Korpusai`)}>CHOOSE PART</button>
@@ -132,3 +112,25 @@ export function BuildPartsList() {
         </>
     )
 }
+
+
+// const partTypeList = [
+//     'Procesorius',
+//     'Aušintuvas',
+//     'Pagrindine plokštė',
+//     'Atmintis (RAM)',
+//     'Kietasis diskas',
+//     'Vaizdo plokštė',
+//     'Maitinimo blokas',
+//     'Korpusas'
+// ];
+// const partTypePageList = [
+//     '/CPU',
+//     '/Ausintuvai',
+//     '/Pagrindines-plokstes',
+//     '/Atmintis',
+//     '/Kietieji-diskai',
+//     '/GPU',
+//     '/Maitinimo-blokai',
+//     '/Korpusai'
+// ];

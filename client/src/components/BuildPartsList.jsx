@@ -10,9 +10,7 @@ export function BuildPartsList() {
 
     
     function partNameByType(partType) {
-        console.log();
         
-        return partName;
     }
  
     return (
@@ -23,7 +21,7 @@ export function BuildPartsList() {
                         <td  className={s.td}><img src="#" alt="partPIC" /></td>
                         <td  className={s.td}>Procesorius</td>
                         <td  className={s.td}>
-                            {partNameByType(1)} 
+                            {build.cpu.part_name ?? 'PART NAME'} 
                         </td>
                         <td  className={s.td}>
                             <button onClick={() => navigate(`/dalys/CPU`)}>CHOOSE PART</button>

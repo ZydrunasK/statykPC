@@ -1,4 +1,4 @@
-import { BuildPartsList } from '../components/BuildPartsList.jsx';
+import { BuildPartsList } from '../components/buildPartsList/BuildPartsList.jsx';
 import s from './pagesCSS/build.module.css';
 
 

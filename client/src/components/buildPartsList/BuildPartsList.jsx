@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useNavigate } from 'react-router-dom';
 import s from '../../pages/pagesCSS/build.module.css';
 import { useContext } from 'react';

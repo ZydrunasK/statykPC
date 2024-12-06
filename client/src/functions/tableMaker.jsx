@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { BuildContext } from "../context/BuildContext";
-import { useNavigate } from "react-router-dom";
 
 /**
  * Makes simple table to show pc components(parts)
@@ -13,12 +12,10 @@ import { useNavigate } from "react-router-dom";
 export function TableMaker(partInfoArr, partsArr, headerArr) {
 
     const {selectPart} = useContext(BuildContext)
-    const navigate = useNavigate();
 
     function handleSelect(event, part) {
         event.preventDefault();
         selectPart(part);
-        // navigate('/build');
     }
 
     if (!Array.isArray(partInfoArr)

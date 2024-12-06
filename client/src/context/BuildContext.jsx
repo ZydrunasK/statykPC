@@ -24,12 +24,17 @@ export function BuildContextWrapper(props) {
 
     function selectPart(part) {
         console.log('select part function');
-        console.log(part);
+        console.log('part: ', part.part_type_id);
+        console.log('entire build ->');
+        
         switch (part.part_type_id) {
             case 1:
             setBuild(build.cpu = part); 
-            console.log(build.cpu);
-               
+            console.log('case 1 ', build.cpu);
+                break;
+            case 2:
+            setBuild(build.ausintuvas = part); 
+            console.log('case 2 ', build.ausintuvas);
                 break;
         
             default:

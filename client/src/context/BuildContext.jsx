@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const initialContext = {
     build: {
@@ -20,21 +20,46 @@ export const BuildContext = createContext(initialContext);
 
 export function BuildContextWrapper(props) {
 
-    const [build, setBuild] = useState(initialContext.build);
+    const [build, setBuild] = useState(initialContext.build)
 
     function selectPart(part) {
-        console.log('select part function');
-        console.log('part: ', part.part_type_id);
-        console.log('entire build ->');
+
+        console.log("build: ", build);
         
+
+        const keys = Object.keys(build);
+        let key = null;
+
+        for (let i = 0; i < keys.length; i++) {
+            if (part.part_type_id === i + 1) {
+                key = keys[i]
+            }
+        }
+
         switch (part.part_type_id) {
             case 1:
-            setBuild(build.cpu = part); 
-            console.log('case 1 ', build.cpu);
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
                 break;
             case 2:
-            setBuild(build.ausintuvas = part); 
-            console.log('case 2 ', build.ausintuvas);
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 3:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 4:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 5:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 6:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 7:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
+                break;
+            case 8:
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
                 break;
         
             default:

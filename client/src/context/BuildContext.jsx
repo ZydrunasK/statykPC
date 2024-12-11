@@ -36,35 +36,18 @@ export function BuildContextWrapper(props) {
             }
         }
 
-        switch (part.part_type_id) {
-            case 1:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
-                break;
-            case 2:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 3:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 4:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 5:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 6:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 7:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-            case 8:
-            setBuild((prevBuild) => ({...prevBuild, [key]: part})); ; 
-                break;
-        
-            default:
-                break;
+        for (let i = 0; i < 8; i++) {
+            if (part.part_type_id > 0
+                && part.part_type_id < 4
+                || part.part_type_id > 6
+                && part.part_type_id <= 8
+            ) {
+                setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
+            }
+            setBuild((prevBuild) => ({...prevBuild, [key]: [part])); 
+
         }
+
     }
 
     const value = {

@@ -36,17 +36,28 @@ export function BuildContextWrapper(props) {
             }
         }
 
-        for (let i = 0; i < 8; i++) {
-            if (part.part_type_id > 0
-                && part.part_type_id < 4
-                || part.part_type_id > 6
-                && part.part_type_id <= 8
-            ) {
-                setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
-            }
-            setBuild((prevBuild) => ({...prevBuild, [key]: [part])); 
 
+        if (part.part_type_id > 0
+            && part.part_type_id < 4
+            || part.part_type_id > 6
+            && part.part_type_id <= 8
+        ) {
+            setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
         }
+
+        if (part.part_type_id === 4) {
+            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.atmintis, part]}))
+        }
+
+        if (part.part_type_id === 5) {
+            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.kietiejiDiskai, part]}))
+        }
+
+        if (part.part_type_id === 6) {
+            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.gpu, part]}))
+        }
+
+
 
     }
 

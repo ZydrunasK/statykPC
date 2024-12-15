@@ -10,7 +10,7 @@ export function Storage_tr() {
         <tr className={s.tr}>
             <td  className={s.td}><img src="#" alt="partPIC" /></td>
             <td  className={s.td}>Kietasis diskas</td>
-            <PartNameTd partType={'kietiejiDiskai'} />
+            <PartNameTd partType={'kietiejiDiskai'} partNum={0} />
             <td  className={s.td}>
                 <button onClick={() => navigate(`/dalys/Kietieji-diskai`)}>CHOOSE PART</button>
             </td>

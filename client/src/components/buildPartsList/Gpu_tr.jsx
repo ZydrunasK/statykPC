@@ -10,7 +10,7 @@ export function Gpu_tr() {
         <tr className={s.tr}>
             <td  className={s.td}><img src="#" alt="partPIC" /></td>
             <td  className={s.td}>Vaizdo plokštė</td>
-            <PartNameTd partType={'gpu'} />
+            <PartNameTd partType={'gpu'} partNum={0} />
             <td  className={s.td}>
                 <button onClick={() => navigate(`/dalys/GPU`)}>CHOOSE PART</button>
             </td>

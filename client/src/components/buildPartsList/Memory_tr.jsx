@@ -10,7 +10,7 @@ export function Memory_tr() {
         <tr className={s.tr}>
             <td  className={s.td}><img src="#" alt="partPIC" /></td>
             <td  className={s.td}>Atmintis (RAM)</td>
-            <PartNameTd partType={'atmintis'} />
+            <PartNameTd partType={'atmintis'} partNum={0} />
             <td  className={s.td}>
                 <button onClick={() => navigate(`/dalys/Atmintis`)}>CHOOSE PART</button>
             </td>

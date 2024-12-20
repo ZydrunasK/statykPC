@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const initialContext = {
     build: {
@@ -26,7 +26,6 @@ export function BuildContextWrapper(props) {
 
         console.log("build: ", build);
         
-
         const keys = Object.keys(build);
         let key = null;
 
@@ -52,7 +51,7 @@ export function BuildContextWrapper(props) {
         if (part.part_type_id === 5) {
             setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.kietiejiDiskai, part]}))
         }
-
+        
         if (part.part_type_id === 6) {
             setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.gpu, part]}))
         }

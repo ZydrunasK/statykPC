@@ -11,6 +11,7 @@ import { Storage_tr } from './Storage_tr.jsx';
 import { Gpu_tr } from './Gpu_tr.jsx';
 import { Psu_tr } from './Psu_tr.jsx';
 import { Case_tr } from './Case_tr.jsx';
+import { BuildListMaker } from '../../functions/BuildListMaker.jsx';
 
 export function BuildPartsList() {
 
@@ -18,18 +19,7 @@ export function BuildPartsList() {
  
     return (
         <>
-            <table className={s.table}>
-                <tbody className={s.tbody}>
-                    <Cpu_tr />
-                    <Cooler_tr />
-                    <Mobo_tr />
-                    <Memory_tr />
-                    <Storage_tr />
-                    <Gpu_tr />
-                    <Psu_tr />
-                    <Case_tr />  
-                </tbody>
-            </table>       
+            {BuildListMaker()}
         </>
     )
 }
@@ -55,3 +45,15 @@ export function BuildPartsList() {
 //     '/Maitinimo-blokai',
 //     '/Korpusai'
 // ];
+{/* <table className={s.table}>
+<tbody className={s.tbody}>
+    <Cpu_tr />
+    <Cooler_tr />
+    <Mobo_tr />
+    <Memory_tr />
+    <Storage_tr />
+    <Gpu_tr />
+    <Psu_tr />
+    <Case_tr />  
+</tbody>
+</table>    */}

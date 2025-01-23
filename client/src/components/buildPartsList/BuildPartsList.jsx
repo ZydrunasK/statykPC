@@ -4,13 +4,13 @@ import s from '../../pages/pagesCSS/build.module.css';
 import { useContext } from 'react';
 import { BuildContext } from '../../context/BuildContext.jsx';
 import { Cpu_tr } from './cpu_tr.jsx';
-import { Cooler_tr } from './Cooler_tr';
-import { Mobo_tr } from './mobo_tr';
-import { Memory_tr } from './Memory_tr';
-import { Storage_tr } from './storage_tr';
-import { Gpu_tr } from './Gpu_tr';
-import { Psu_tr } from './Psu_tr';
-import { Case_tr } from './Case_tr';
+import { Cooler_tr } from './Cooler_tr.jsx';
+import { Mobo_tr } from './mobo_tr.jsx';
+import { Memory_tr } from './Memory_tr.jsx';
+import { Storage_tr } from './Storage_tr.jsx';
+import { Gpu_tr } from './Gpu_tr.jsx';
+import { Psu_tr } from './Psu_tr.jsx';
+import { Case_tr } from './Case_tr.jsx';
 
 export function BuildPartsList() {
 

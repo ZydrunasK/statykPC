@@ -19,7 +19,8 @@ export function BuildPartsList() {
  
     return (
         <>
-            {BuildListMaker()}
+            {BuildListMaker('cpu', 'CPU')}
+            {BuildListMaker('ausintuvas', 'Ausintuvai')}
         </>
     )
 }

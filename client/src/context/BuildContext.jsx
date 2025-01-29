@@ -24,7 +24,7 @@ export function BuildContextWrapper(props) {
 
     function selectPart(part) {
 
-        console.log("build: ", build);
+       // console.log("build: ", build);
         
         const keys = Object.keys(build);
         let key = null;

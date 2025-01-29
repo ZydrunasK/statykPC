@@ -7,12 +7,16 @@ import { BuildContext } from '../context/BuildContext.jsx';
 export function BuildListMaker(partType, nav) {
 
     const navigate = useNavigate();
-    const build = useContext(BuildContext)
+    const {build} = useContext(BuildContext)
+
+    console.log(partType, build[partType]);
+    
+
 
     let part = (                    
             <tr className={s.tr}>
                 <td className={s.td}><img src="#" alt="partPIC" /></td>
-                <PartNameTd partType={partType} partNum={}/>
+                <PartNameTd partType={partType}/>
                 <td className={s.td}> 
                     <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
                 </td>
@@ -22,10 +26,12 @@ export function BuildListMaker(partType, nav) {
         <>
             <table className={s.table}>
                 <thead>
-                    <th>{partType}</th>
-                    <th> 
-                        <button onClick={() => navigate(`/dalys/${nav}`)}>CHOOSE PART</button>
-                    </th>
+                    <tr>
+                        <th>{partType}</th>
+                        <th> 
+                            <button onClick={() => navigate(`/dalys/${nav}`)}>CHOOSE PART</button>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
                     {part}  

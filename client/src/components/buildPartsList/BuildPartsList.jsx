@@ -21,6 +21,12 @@ export function BuildPartsList() {
         <>
             {BuildListMaker('cpu', 'CPU')}
             {BuildListMaker('ausintuvas', 'Ausintuvai')}
+            {BuildListMaker('pagrindinePlokste', 'Pagrindines-plokstes')}
+            {BuildListMaker('atmintis', 'Atmintis')}
+            {BuildListMaker('kietiejiDiskai', 'Kietieji-diskai')}
+            {BuildListMaker('gpu', 'GPU')}
+            {BuildListMaker('maitinimoBlokas', 'Maitinimo-blokai')}
+            {BuildListMaker('korpusas', 'Korpusai')}
         </>
     )
 }

@@ -24,17 +24,17 @@ export function BuildContextWrapper(props) {
 
     function selectPart(part) {
 
-       // console.log("build: ", build);
         
         const keys = Object.keys(build);
         let key = null;
-
+        
         for (let i = 0; i < keys.length; i++) {
             if (part.part_type_id === i + 1) {
                 key = keys[i]
             }
         }
-
+        
+        // console.log("build: ", build);
 
         if (part.part_type_id > 0
             && part.part_type_id < 4
@@ -43,7 +43,7 @@ export function BuildContextWrapper(props) {
         ) {
             setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
         }
-
+        
         if (part.part_type_id === 4) {
             setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.atmintis, part]}))
         }

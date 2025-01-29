@@ -8,20 +8,33 @@ export function BuildListMaker(partType, nav) {
 
     const navigate = useNavigate();
     const {build} = useContext(BuildContext)
-
-    console.log(partType, build[partType]);
     
+    let part = [];
+    
+    if (Array.isArray(build[partType])
+        && build[partType].length > 0) {
+            for (let i = 0; i < build[partType].length; i++) {
+                part.push(
+                    <tr className={s.tr} key={i * Math.random()}>
+                    <td className={s.td}><img src="#" alt="partPIC" /></td>
+                    <PartNameTd partType={partType} partNum={i}/>
+                    <td className={s.td}> 
+                        <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
+                    </td>
+                </tr>)
+            }
+            } else {
+                 part = (                    
+                    <tr className={s.tr}>
+                        <td className={s.td}><img src="#" alt="partPIC" /></td>
+                        <PartNameTd partType={partType}/>
+                        <td className={s.td}> 
+                            <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
+                        </td>
+                    </tr>
+            )
+    }
 
-
-    let part = (                    
-            <tr className={s.tr}>
-                <td className={s.td}><img src="#" alt="partPIC" /></td>
-                <PartNameTd partType={partType}/>
-                <td className={s.td}> 
-                    <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
-                </td>
-            </tr>
-        )
     return (
         <>
             <table className={s.table}>
@@ -34,7 +47,7 @@ export function BuildListMaker(partType, nav) {
                     </tr>
                 </thead>
                 <tbody>
-                    {part}  
+                    {part}
                 </tbody>
             </table>
         </>

@@ -7,7 +7,7 @@ import { BuildContext } from '../context/BuildContext.jsx';
 export function BuildListMaker(partType, nav) {
 
     const navigate = useNavigate();
-    const {build} = useContext(BuildContext)
+    const {build, removePart} = useContext(BuildContext)
     
     let part = [];
     
@@ -19,7 +19,7 @@ export function BuildListMaker(partType, nav) {
                     <td className={s.td}><img src="#" alt="partPIC" /></td>
                     <PartNameTd partType={partType} partNum={i}/>
                     <td className={s.td}> 
-                        <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
+                        <button onClick={() => removePart(partType, i)}>REMOVE PART</button>
                     </td>
                 </tr>)
             }
@@ -29,7 +29,7 @@ export function BuildListMaker(partType, nav) {
                         <td className={s.td}><img src="#" alt="partPIC" /></td>
                         <PartNameTd partType={partType}/>
                         <td className={s.td}> 
-                            <button onClick={() => navigate(`/dalys/CPU`)}>REMOVE PART</button>
+                            <button onClick={() => removePart(partType)}>REMOVE PART</button>
                         </td>
                     </tr>
             )

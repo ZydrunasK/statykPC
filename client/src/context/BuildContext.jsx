@@ -13,7 +13,8 @@ export const initialContext = {
         maitinimoBlokas: {},
         korpusas: {},
     },
-    selectPart: () => {}
+    selectPart: () => {},
+    removePart: () => {},
 };
 
 export const BuildContext = createContext(initialContext);
@@ -21,6 +22,17 @@ export const BuildContext = createContext(initialContext);
 export function BuildContextWrapper(props) {
 
     const [build, setBuild] = useState(initialContext.build)
+
+    function removePart(partType, num = null) {
+        if (num === null) {
+            setBuild((prevBuild) => ({...prevBuild, [partType]: {}}));
+        } else {
+            const newPartList = build[partType].filter(part => part !== build[partType][num])
+            setBuild((prevBuild) => ({...prevBuild, [partType]: [...newPartList]}))
+
+        }
+
+    }
 
     function selectPart(part) {
 
@@ -62,7 +74,8 @@ export function BuildContextWrapper(props) {
 
     const value = {
         build,
-        selectPart
+        selectPart,
+        removePart
     };
 
     return (

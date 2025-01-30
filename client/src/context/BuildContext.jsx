@@ -29,14 +29,11 @@ export function BuildContextWrapper(props) {
         } else {
             const newPartList = build[partType].filter(part => part !== build[partType][num])
             setBuild((prevBuild) => ({...prevBuild, [partType]: [...newPartList]}))
-
         }
-
     }
 
     function selectPart(part) {
 
-        
         const keys = Object.keys(build);
         let key = null;
         
@@ -54,22 +51,9 @@ export function BuildContextWrapper(props) {
             && part.part_type_id <= 8
         ) {
             setBuild((prevBuild) => ({...prevBuild, [key]: part})); 
+        } else {
+            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild[key], part]}))
         }
-        
-        if (part.part_type_id === 4) {
-            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.atmintis, part]}))
-        }
-
-        if (part.part_type_id === 5) {
-            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.kietiejiDiskai, part]}))
-        }
-        
-        if (part.part_type_id === 6) {
-            setBuild((prevBuild) => ({...prevBuild, [key]: [...prevBuild.gpu, part]}))
-        }
-
-
-
     }
 
     const value = {

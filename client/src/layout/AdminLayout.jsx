@@ -2,11 +2,11 @@ import { Footer } from "../components/Footer.jsx";
 import { Header } from "../components/headers/Header.jsx";
 import { Outlet } from 'react-router-dom';
 
-export function UserLayout() {
+export function AdminLayout() {
     return (
         <>
             <Header />
-                <Outlet />
+            <Outlet />
             <Footer />
         </>
     )

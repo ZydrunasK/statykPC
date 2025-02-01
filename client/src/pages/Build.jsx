@@ -1,4 +1,4 @@
-import { BuildPartsList } from '../components/BuildPartsList.jsx';
+import { BuildPartsList } from '../components/buildPartsList/BuildPartsList.jsx';
 import s from './pagesCSS/build.module.css';
 
 
@@ -9,22 +9,22 @@ export function Build() {
 
         <main className={s.main}>
 
-            <div className={s.mainDiv}>
+            <section className={s.mainDiv}>
 
                 <header className={s.head}>
                     <p className={s.para}>COMPATIBILITY STATUS</p>
                     <p className={s.para}>ESTIMATED WATAGE</p>
                 </header>
 
-                <section className={s.buildSect}>
+                <div className={s.buildSect}>
                     {BuildPartsList()}
-                </section>
+                </div>
 
                 <footer className={s.foot}>
                     <p className={s.para}>KAZKAS DAR NZN</p>
                 </footer>
 
-            </div>
+            </section>
         </main>
 
     );

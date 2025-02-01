@@ -37,7 +37,7 @@ export function ContextWrapper(props) {
             } else {
                 login(data)
             }
-        })
+        })        
     }, [])
 
     function handleVisible() {

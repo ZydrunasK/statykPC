@@ -1,10 +1,10 @@
-export function userRoleCheck(req, res, next, requiredRole) {
-
-    const role = req.role;
-
-    if (requiredRole !== role) {
-        return resizeBy.status(401).send('Seems like this is not for you')
+export const userRoleCheck = (requiredRole) => {
+    return (req, res, next) => {
+        const role = req.user.role;
+        if (requiredRole !== role) {
+            console.log(req.user);
+            return res.status(401).json({msg: 'bad juju'})
+        }
+        next();
     }
-
-    next()
 }

@@ -11,6 +11,7 @@ import { getUserData } from "./middleware/getUserData.js";
 import { logoutGetAPI } from "./api/logoutAPI.js";
 import { profileGetApi } from "./api/profileAPI.js";
 import { dalysAPIRouter } from "./router/dalysRouter.js";
+import { userRoleCheck } from "./middleware/userRoleCheck.js";
 
 
 const app = e();
@@ -35,12 +36,13 @@ app.get('/', homePage);
 app.post('/api/register', registerPostAPI);
 app.post('/api/login', loginPostAPI);
 app.get('/api/logout', logoutGetAPI);
+app.get('/api/admin/', logoutGetAPI);
 
 // GET parts
 app.use('/api/dalys', dalysAPIRouter)
 
 app.get('/api/login', loginGetAPI);
-app.get('/api/profile', profileGetApi);
+app.get('/api/profile', userRoleCheck('user'), profileGetApi);
 
 
 app.get('*', notFoundPage);

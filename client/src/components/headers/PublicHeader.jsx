@@ -22,8 +22,8 @@ export function PublicHeader() {
                     </form>
 
                     <div className='text-end'>
-                    <Link to='/login' className='btn btn-primary'>Log In</Link>
                     <Link to='/register' className='btn btn-secondary'>Register</Link>
+                    <Link to='/login' className='btn btn-primary'>Log In</Link>
                     </div>
                 </div>
                 <div className="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">

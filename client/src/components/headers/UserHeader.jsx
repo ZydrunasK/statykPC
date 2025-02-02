@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 
-export function UserHeader() {
+export function UserHeader(adminStuff) {
     const {logout, role} = useContext(UserContext);
 
     function handleLogout() {
@@ -35,6 +35,7 @@ export function UserHeader() {
             </form>
 
             <div className='text-end'>
+                {role === 'admin' ? <Link to='/adminPanel' className='btn btn-primary'>admin panel</Link> : ''}
                 <Link to='/profile' className='btn btn-primary'>Profile</Link>
                 <Link onClick={handleLogout} to='/' className='btn btn-primary'>Log Out</Link>
             </div>

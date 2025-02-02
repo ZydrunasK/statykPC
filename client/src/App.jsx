@@ -20,6 +20,7 @@ import { Profile } from "./pages/Profile.jsx";
 import { Case } from "./pages/parts/Case.jsx";
 import { Build } from "./pages/build.jsx";
 import { BuildContextWrapper } from "./context/BuildContext.jsx";
+import { AdminPanel } from "./components/admin/AdminPanel.jsx";
 
 export function App() {
 
@@ -60,16 +61,8 @@ export function App() {
 
               <Route Component={AdminLayout}>
                 <Route path='/profile' element={<Profile />}></Route>
-                <Route path='/Admin-Panel' element={<Build />}></Route>
+                <Route path='/adminPanel' element={<AdminPanel />}></Route>
                 {mainRoutes}
-                <Route path='/dalys/CPU' element={<CPU />}></Route>
-                <Route path='/dalys/Ausintuvai' element={<Cooler />}></Route>
-                <Route path='/dalys/Pagrindines-plokstes' element={<MotherBoard />}></Route>
-                <Route path='/dalys/Atmintis' element={<Memory />}></Route>
-                <Route path='/dalys/Kietieji-diskai' element={<Storage />}></Route>
-                <Route path='/dalys/GPU' element={<GPU />}></Route>
-                <Route path='/dalys/Maitinimo-blokai' element={<PSU />}></Route>
-                <Route path='/dalys/Korpusai' element={<Case />}></Route>
               </Route>
 
               <Route path='*' element={<NotFound />}></Route>

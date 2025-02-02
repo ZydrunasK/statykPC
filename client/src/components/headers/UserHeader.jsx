@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 
-export function UserHeader(adminStuff) {
+export function UserHeader() {
     const {logout, role} = useContext(UserContext);
 
     function handleLogout() {

@@ -2,11 +2,11 @@ import s from './adminPanel.module.css';
 import { AdminSideBar } from './AdminSideBar.jsx';
 
 
-export function AdminPanel() {
+export function AdminAddParts() {
     return (
         <section className={s.adminPanel}>
             <AdminSideBar />
-            <div>admin panel</div>
+            <div>admin ADD panel</div>
         </section>
     );
 }

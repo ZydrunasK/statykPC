@@ -21,6 +21,8 @@ import { Case } from "./pages/parts/Case.jsx";
 import { Build } from "./pages/build.jsx";
 import { BuildContextWrapper } from "./context/BuildContext.jsx";
 import { AdminPanel } from "./components/admin/AdminPanel.jsx";
+import { AdminAllParts } from "./components/admin/AdminAllParts.jsx";
+import { AdminAddParts } from "./components/admin/AdminAddParts.jsx";
 
 export function App() {
 
@@ -62,6 +64,8 @@ export function App() {
               <Route Component={AdminLayout}>
                 <Route path='/profile' element={<Profile />}></Route>
                 <Route path='/adminPanel' element={<AdminPanel />}></Route>
+                <Route path='/adminAllParts' element={<AdminAllParts />}></Route>
+                <Route path='/adminAddParts' element={<AdminAddParts />}></Route>
                 {mainRoutes}
               </Route>
 

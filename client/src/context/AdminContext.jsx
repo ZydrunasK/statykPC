@@ -3,7 +3,16 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const initialContext = {
-    structureData: [],
+    partType: [
+        'CPU',
+        'Ausintuvai',
+        'Pagrindines-plokstes',
+        'Atmintis',
+        'Kietieji-diskai',
+        'Vaizdo-Plokstes',
+        'Maitinimo-blokai',
+        'Korpusai'
+    ],
     allParts: [],
     selectPart: () => {},
     removePart: () => {},
@@ -13,32 +22,10 @@ export const initialContext = {
 export const AdminContext = createContext(initialContext);
 
 export function AdminContextWrapper(props) {
-    const type = [
-        'CPU',
-        'Ausintuvai',
-        'Pagrindines-plokstes',
-        'Atmintis',
-        'Kietieji-diskai',
-        'Vaizdo-Plokstes',
-        'Maitinimo-blokai',
-        'Korpusai'
-    ]
-
-    const [structureData, setStructureData] = useState(initialContext.structureData);
-    
-    useEffect(() => {
-        fetch(`http://localhost:5123/api/dalys/Korpusai/structure`, {
-            method: 'GET',
-            credentials: 'include',
-        })
-        .then(res => res.json())
-        .then(data => setStructureData(data[0]))
-        .catch(error => console.error(error))
-
-    }, [])
+    const [partType] = useState(initialContext.structureData);
         
     const value = {
-        structureData,
+        partType
     };
 
     return (

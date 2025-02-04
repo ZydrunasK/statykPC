@@ -96,7 +96,7 @@ export async function loginGetAPI(req, res) {
     if (!loginToken) {
         return res.status(400).json({
             status: 'error',
-            msg: 'ERROR: nera loginToken'
+            msg: 'nera loginToken'
         })
     }
 

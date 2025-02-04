@@ -23,6 +23,7 @@ import { BuildContextWrapper } from "./context/BuildContext.jsx";
 import { AdminPanel } from "./components/admin/AdminPanel.jsx";
 import { AdminAllParts } from "./components/admin/AdminAllParts.jsx";
 import { AdminAddParts } from "./components/admin/AdminAddParts.jsx";
+import { AdminContextWrapper } from "./context/AdminContext.jsx";
 
 export function App() {
 
@@ -46,7 +47,8 @@ export function App() {
 
   return (
       <ContextWrapper>
-        <BuildContextWrapper>
+      <BuildContextWrapper>
+      <AdminContextWrapper>
           <BrowserRouter>
             <Routes>
 
@@ -72,7 +74,8 @@ export function App() {
               <Route path='*' element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>
-        </BuildContextWrapper>
+      </AdminContextWrapper>
+      </BuildContextWrapper>
       </ContextWrapper>
   )
 }

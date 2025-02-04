@@ -3,3 +3,7 @@
     align-items: center;
     justify-content: center;
 }
+.partForm{
+    display: flex;
+    flex-direction: column;
+}

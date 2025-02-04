@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const initialContext = {
+    structureData: [],
     allParts: [],
     selectPart: () => {},
     removePart: () => {},
@@ -12,7 +13,6 @@ export const initialContext = {
 export const AdminContext = createContext(initialContext);
 
 export function AdminContextWrapper(props) {
-    
     const type = [
         'CPU',
         'Ausintuvai',
@@ -23,9 +23,22 @@ export function AdminContextWrapper(props) {
         'Maitinimo-blokai',
         'Korpusai'
     ]
+
+    const [structureData, setStructureData] = useState(initialContext.structureData);
+    
+    useEffect(() => {
+        fetch(`http://localhost:5123/api/dalys/Korpusai/structure`, {
+            method: 'GET',
+            credentials: 'include',
+        })
+        .then(res => res.json())
+        .then(data => setStructureData(data[0]))
+        .catch(error => console.error(error))
+
+    }, [])
         
     const value = {
-
+        structureData,
     };
 
     return (

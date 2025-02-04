@@ -9,3 +9,12 @@ export async function psuGetAPI(req, res) {
         console.error(error);
     }
 }
+export async function psuGetStructureAPI(req, res) {
+    try {
+        const sql = 'DESCRIBE psus';
+        const dataStructure = await connection.execute(sql); 
+        res.json(dataStructure);
+    } catch (error) {
+        console.error(error);
+    }
+}

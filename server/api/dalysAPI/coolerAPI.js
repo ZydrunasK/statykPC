@@ -9,3 +9,12 @@ export async function coolerGetAPI(req, res) {
         console.error(error);
     }
 }
+export async function coolerGetStructureAPI(req, res) {
+    try {
+        const sql = 'DESCRIBE coolers';
+        const dataStructure = await connection.execute(sql); 
+        res.json(dataStructure);
+    } catch (error) {
+        console.error(error);
+    }
+}

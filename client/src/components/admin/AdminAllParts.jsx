@@ -9,7 +9,7 @@ export function AdminAllParts() {
     const [parts, setParts] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5123/api/dalys/CPU`, {
+        fetch(`http://localhost:5123/api/dalys/Vaizdo-plokstes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

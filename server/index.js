@@ -36,7 +36,6 @@ app.get('/', homePage);
 app.post('/api/register', registerPostAPI);
 app.post('/api/login', loginPostAPI);
 app.get('/api/logout', logoutGetAPI);
-app.get('/api/admin/', logoutGetAPI);
 
 // GET parts
 app.use('/api/dalys', dalysAPIRouter)

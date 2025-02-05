@@ -22,7 +22,7 @@ export const initialContext = {
 export const AdminContext = createContext(initialContext);
 
 export function AdminContextWrapper(props) {
-    const [partType] = useState(initialContext.structureData);
+    const [partType] = useState(initialContext.partType);
         
     const value = {
         partType

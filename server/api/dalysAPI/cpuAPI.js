@@ -14,6 +14,7 @@ export async function cpuGetStructureAPI(req, res) {
         const sql = 'DESCRIBE cpus';
         const dataStructure = await connection.execute(sql); 
         res.json(dataStructure);
+        
     } catch (error) {
         console.error(error);
     }

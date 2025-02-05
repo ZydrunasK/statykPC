@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import s from './adminPanel.module.css';
 import { AdminSideBar } from './AdminSideBar.jsx';
 import { AdminContext } from '../../context/AdminContext.jsx';
@@ -8,10 +8,12 @@ export function AdminAddParts() {
 
     const {partType} = useContext(AdminContext);
     const [structureData, setStructureData] = useState([]);
-    const [partID, setPartID] = useState(0);
+    const [partID, setPartID] = useState(1);
+    const [formData, setFormData] = useState({});
     
     const handlePartIDChange = (event) => {        
         setPartID(event.target.value);
+        setFormData({});
     };
     
     useEffect(() => {
@@ -23,21 +25,54 @@ export function AdminAddParts() {
         .then(data => setStructureData(data[0]))
         .catch(error => console.error(error))
     }, [partID, partType])
+
     
     const fieldNames = structureData.map(obj => obj.Field);
     const inputTypes = structureData.map(obj => obj.Type);
     const form = [];
 
-    for (let i = 0; i < fieldNames.length; i++) {
-        const inputType = inputTypes[i].includes('int') ? 'number' : 'text';
+    for (let i = 2; i < fieldNames.length; i++) {
+        const inputType = inputTypes[i].includes('char') ? 'text' : 'number';
         form.push(
-            <>
+            <React.Fragment key={i + 200}>
             <label key={i + 1} htmlFor={fieldNames[i]}>{fieldNames[i]} ({inputType})</label>
-            <input key={i + 2} id={fieldNames[i]} type={inputType} />
-        </>)
+            <input
+                    required
+                    key={i + 100}
+                    id={fieldNames[i]}
+                    type={inputType}
+                    value={formData[fieldNames[i]] || ''}
+                    onChange={(e) => {
+                        setFormData({
+                            ...formData,
+                            [fieldNames[i]]: e.target.value,
+                        });
+                    }}
+            />
+        </React.Fragment>)
     }
-    console.log(form);
     
+    async function handleNewPartFormSubmit(e) {
+        e.preventDefault();
+        const data = { ...formData, partID};
+        
+        try {
+            const response = await fetch('http://localhost:5123/api/submit-part', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            console.log(response);
+            
+            
+        } catch (error) {
+            console.error('Submitting Form ERROR: ', error);
+            alert('ERROR: FORM DIDNT SUBMIT')
+        }
+    }
     
 
     return (
@@ -61,8 +96,9 @@ export function AdminAddParts() {
 
 
 
-                    <form key={123} className={s.partForm} action="POST">
-                        {form.length === 0 ? 'Pick Which Part Type you want to add' : form}
+                    <form key={123} className={s.partForm}  onSubmit={handleNewPartFormSubmit}>
+                        {form}
+                        <button type='submit'>SUBMIT</button>
                     </form>
                 </div>
         </section>

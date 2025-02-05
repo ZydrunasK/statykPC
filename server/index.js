@@ -12,6 +12,7 @@ import { logoutGetAPI } from "./api/logoutAPI.js";
 import { profileGetApi } from "./api/profileAPI.js";
 import { dalysAPIRouter } from "./router/dalysRouter.js";
 import { userRoleCheck } from "./middleware/userRoleCheck.js";
+import { submitPartAPI } from "./api/submitPartAPI.js";
 
 
 const app = e();
@@ -43,6 +44,8 @@ app.use('/api/dalys', dalysAPIRouter)
 app.get('/api/login', loginGetAPI);
 app.get('/api/profile', userRoleCheck('user'), profileGetApi);
 
+// POST new part
+app.post('/api/submit-part', submitPartAPI)
 
 app.get('*', notFoundPage);
 

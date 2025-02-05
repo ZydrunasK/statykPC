@@ -17,3 +17,4 @@ export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 export const COOKIE_ALLOWED_SYMBOLS = process.env.COOKIE_ALLOWED_SYMBOLS;
 export const COOKIE_SIZE = +process.env.COOKIE_SIZE;
 export const COOKIE_MAX_AGE = +process.env.COOKIE_MAX_AGE;
+export const PARTS_NAMES_DB = process.env.PARTS_NAMES_DB;

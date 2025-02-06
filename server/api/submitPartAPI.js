@@ -6,15 +6,23 @@ export async function submitPartAPI(req, res) {
     const partObjKeys = Object.keys(req.body[0]).join(', ');
     const partObjValues = Object.values(req.body[0]);
     const valueQuestionMarks = Object.keys(req.body[0]).map(key => '?').join(', ');
-    console.log(valueQuestionMarks);
-    
-
 
     try {
         const sql = `INSERT INTO ${partNameDB} (${partObjKeys}) VALUES (${valueQuestionMarks})`;
-        const insertResult = await connection.execute(sql, [...partObjValues])
+        const insertResult = await connection.execute(sql, [...partObjValues]);
+        console.log(insertResult);
+
+        if (insertResult[0].affectedRows !== 1) {
+            return res.status(500).json({
+                status: 'error',
+                msg: 'nepavyko įkelti naujos detalės'
+            })
+        }
     } catch (error) {
-        
+        return res.status(400).json({
+            status: 'error',
+            msg: 'Serverio klaida: nepavyko įkelti naujos detalės'
+        })
     }
     
 }

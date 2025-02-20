@@ -11,7 +11,7 @@ import { Forum } from "./pages/Forum.jsx";
 import { Faq } from "./pages/Faq.jsx";
 import { MotherBoard } from "./pages/parts/MotherBoard.jsx";
 import { CPU } from "./pages/parts/CPU.jsx";
-import { Memory } from "./pages/parts/memory.jsx";
+import { Memory } from "./pages/parts/Memory.jsx";
 import { GPU } from "./pages/parts/GPU.jsx";
 import { Storage } from "./pages/parts/Storage.jsx";
 import { Cooler } from "./pages/parts/Cooler.jsx";

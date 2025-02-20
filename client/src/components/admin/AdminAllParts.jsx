@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import s from './adminPanel.module.css';
 import { AdminSideBar } from './AdminSideBar.jsx';
-import { TableMaker } from '../../functions/TableMakers.jsx';
+import { TableMaker } from '../../functions/TableMaker.jsx';
 
 
 export function AdminAllParts() {

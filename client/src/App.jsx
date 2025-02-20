@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ContextWrapper } from './context/UserContext';
+import { ContextWrapper } from './context/UserContext.jsx';
 import { NotFound } from "./pages/NotFound.jsx";
 import { Main } from "./pages/Main.jsx";
 import { Login } from "./pages/Login.jsx";
@@ -18,7 +18,7 @@ import { Cooler } from "./pages/parts/Cooler.jsx";
 import { PSU } from "./pages/parts/PSU.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Case } from "./pages/parts/Case.jsx";
-import { Build } from "./pages/build.jsx";
+import { Build } from "./pages/Build.jsx";
 import { BuildContextWrapper } from "./context/BuildContext.jsx";
 import { AdminPanel } from "./components/admin/AdminPanel.jsx";
 import { AdminAllParts } from "./components/admin/AdminAllParts.jsx";

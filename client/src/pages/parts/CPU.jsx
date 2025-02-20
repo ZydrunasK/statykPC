@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { ListFilter } from '../../components/listFilter/ListFilter.jsx';
-import { TableMaker } from '../../functions/TableMaker.jsx';
+import { TableMaker } from '../../functions/TableMakers.jsx';
 import s from './parts.module.css';
 
 export function CPU() {
